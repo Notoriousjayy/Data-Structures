@@ -1,0 +1,218 @@
+{\bf Mathematical Analysis of Nonrecursive Algorithms}
+\vskip 1mm
+\hrule
+
+\vskip 1cm
+{\bf Example 1:} Consider the problem of finding the value of the largest element in a list of $n$ numbers. For simplicity, we assume that the list is implemented as an array. The following is pseudocode of a standard algorithm for solving the problem.
+
+$$\hbox{\tt\bf MaxElement($A[0\ldots n-1]$)}$$
+$$\vbox{\settabs 1 \columns
+\+{\bf // Determines the value of the largest element in a given array}\cr
+\+{\bf // Input: An array $A[0\ldots n-1]$ of real numbers}\cr
+\+{\bf // Output: The value of the largest elemenrt in $A$} \cr}$$
+
+$$\vbox{\+\tt maxval$\gets A[0]$\cr
+	\+\tt {\bf for} \cleartabs&{}\tt $i\gets1$ {\bf to} $n-1$ {\bf do}  \cr
+	\+&\tt {\bf if} \cleartabs&{}\tt A[i] > maxval\cr
+	\+&&\tt maxval$\gets$ A[i]\cr
+	\+\tt {\bf return} maxval\cr}$$
+
+Here is an implementation in C/C++
+
+$$\hbox{\tt\bf int MaxElement(int arr[$\,$], int n) $\{$}$$
+$$\vbox{\settabs 1 \columns
+\+{\bf // Determines the value of the largest element in a given array}\cr
+\+{\bf // Input: An array $A[0\ldots n-1]$ of real numbers and the sive of the array.}\cr
+\+{\bf // Output: The value of the largest elemenrt in $A$} \cr}$$
+
+$$\vbox{\+\tt int maxval = arr[0];\cr
+	\+\tt {\bf for}\cleartabs&\tt{} (int i = 1; i < n; i++)\cr
+	\+&\tt {\bf if} \cleartabs&\tt{} (arr[i] $>$ maxval)\cr
+	\+&&\tt maxval = arr[i];\cr
+	\+\tt {\bf return} maxval;\cr
+	\+$\}$\cr}$$
+
+\vskip 1cm
+Here is an implementation in Java
+
+$$\hbox{\tt\bf static int MaxElement(int arr[$\,$], int n) $\{$}$$
+$$\vbox{\settabs 1 \columns
+\+{\bf // Determines the value of the largest element in a given array}\cr
+\+{\bf // Input: An array $A[0\ldots n-1]$ of real numbers and the sive of the array.}\cr
+\+{\bf // Output: The value of the largest elemenrt in $A$} \cr}$$
+
+$$\vbox{\+\tt int maxval = arr[0];\cr
+	\+\tt {\bf for}\cleartabs&\tt{} (int i = 1; arr.length; i++)\cr
+	\+&\tt {\bf if} \cleartabs&\tt{} (arr[i] $>$ maxval)\cr
+	\+&&\tt maxval = arr[i];\cr
+	\+\tt {\bf return} maxval;\cr
+	\+$\}$\cr}$$
+
+\filbreak
+\vskip 1cm
+Here is an implementation in Javascript
+
+$$\hbox{\tt\bf function MaxElement(arr[$\,$], n) $\{$}$$
+$$\vbox{\settabs 1 \columns
+\+{\bf // Determines the value of the largest element in a given array}\cr
+\+{\bf // Input: An array $A[0\ldots n-1]$ of real numbers and the sive of the array.}\cr
+\+{\bf // Output: The value of the largest elemenrt in $A$} \cr}$$
+
+$$\vbox{\+\tt var maxval = arr[0];\cr
+	\+\tt {\bf for}\cleartabs&\tt{} (var i = 1; arr.length; i++)\cr
+	\+&\tt {\bf if} \cleartabs&\tt{} (arr[i] $>$ maxval)\cr
+	\+&&\tt maxval = arr[i];\cr
+	\+\tt {\bf return} maxval;\cr
+	\+$\}$\cr}$$
+
+\vskip 1cm
+Here is an implementation in Python
+
+$$\hbox{\tt\bf def MaxElement(arr, n):}$$
+$$\vbox{\settabs 1 \columns
+\+{\bf // Determines the value of the largest element in a given array}\cr
+\+{\bf // Input: An array $A[0\ldots n-1]$ of real numbers and the sive of the array.}\cr
+\+{\bf // Output: The value of the largest elemenrt in $A$} \cr}$$
+
+$$\vbox{\+\tt maxval = arr[0]\cr
+	\+\tt {\bf for}\cleartabs&\tt{} i in len(arr):\cr
+	\+&\tt {\bf if} \cleartabs&\tt{} arr[i] $>$ maxval:\cr
+	\+&&\tt maxval = arr[i]\cr
+	\+\tt {\bf return} maxval\cr}$$
+
+The obvious measure of an input's size here is the number of elements in the array. The operations that are going to executed most often are in the algorithms {\tt for} loop. There are two operations in the loop's body: The comparison {\tt A[i] $>$ maxval} and the assignment {\tt maxval $\gets$ A[i]}. Since the comparison is executed on each repetition of the loop and the assignment is not, we should consider the comparison to be the algorthm's basic operation. Note that the number of comparisons will be the same for all arrays of size $n$; therefore in terms of this metric, there is no need to distinguish among the worst, average, and best cases here.
+
+\vskip 1mm
+Let us denote $C(n)$ the number of times this comparison is executed and try to find a formula expresing it as a function of size $n$. The algorithm makes one comparison on each execution of the loop, which is repeated for each value of the loop's variable {\tt i} within the bounds $1$ and $n-1$, inclusive. Therefore, we get the following sum for $C(n)$:
+
+$$C(n)=\sum\limits^{n-1}_{i=1}1$$
+
+This is nothing but $1$ repeated $n-1$ times, Thus
+
+$$C(n)=\sum\limits^{n-1}_{i=1}1=n-1\in\Theta(n)$$
+
+\filbreak
+\vskip 1cm
+{\bf General Plan for Analyzing the Time Efficiency of Nonrecursive Algorithms}
+
+\vskip 3mm
+1. Decide on a parameter (or parameters) indicating an input's size.
+
+\vskip 2mm
+2. Identify the algorithm's basic operation. (As a rule, it is located in the innermost loop.)
+
+\vskip 2mm
+3. Check whether the number of times the basic operation is executed depends only on the size of an input. If it also depends on some additional property, the worst-case, average-case, and, if necessary, best-case efficiencies have to be investigated separately.
+
+\vskip 2mm
+4. Set up a sum expressing the number of times the algorithm's basic operation is executed.
+
+\vskip 2mm
+5. Using standard formulas and rules of sum manipulation, either find a closed-form formula for the count or, at the very least, establish its order of growth.
+
+\filbreak
+\vskip 1cm
+{\bf Example 2:} Consider the {\bf element uniqueness problem}: check whether all the elements in a given array of $n$ elements are distinct.
+
+$$\hbox{\tt\bf UniqueElements($A[0\ldots n-1]$)}$$
+$$\vbox{\settabs 1 \columns
+\+{\bf // Determines whether all the elements in a given array are distinct}\cr
+\+{\bf // Input: An array $A[0\ldots n-1]$ of real numbers}\cr
+\+{\bf // Output: Returns {\tt true} if all the elements in $A$ are distinct and {\tt false} otherwise} \cr}$$
+
+$$\vbox{\+\tt {\bf for} \cleartabs&{}\tt $i \gets 0$ {\bf to} $n - 2$\cr
+	\+&\tt {\bf for} \cleartabs&{}\tt $j \gets i + 1$ {\bf to} $n - 1$ {\bf do}\cr
+	\+&&\tt {\bf if} \cleartabs&{}\tt A[i]=A[j]\cr
+	\+&&&\tt{\bf return} false\cr
+	\+\tt {\bf return} true\cr}$$
+
+\vskip 1cm
+Here is an implementation in C/C++
+
+$$\hbox{\tt\bf int UniqueElements(int arr[$\,$], int n) $\{$}$$
+$$\vbox{\settabs 1 \columns
+\+{\bf // Determines whether all the elements in a given array are distinct}\cr
+\+{\bf // Input: An array $A[0\ldots n-1]$ of real numbers}\cr
+\+{\bf // Output: Returns {\tt true} if all the elements in $A$ are distinct and {\tt false} otherwise} \cr}$$
+
+$$\vbox{\+\tt {\bf for} \cleartabs&{}\tt int i = 0; i < n; i++ $\{$\cr
+	\+&\tt {\bf for} \cleartabs&{}\tt int j = 0; j < i; j++)\cr
+	\+&&\tt {\bf if} \cleartabs&{}\tt (arr[i]==arr[j])\cr
+	\+&&&\tt{\bf return} false\cr
+	\+$\}$\cr
+	\+\tt {\bf return} true\cr
+	\+\tt$\}$\cr}$$
+
+\vskip 1cm
+Here is an implementation in Java
+
+$$\hbox{\tt\bf static int UniqueElements(int arr[$\,$], int n) $\{$}$$
+$$\vbox{\settabs 1 \columns
+\+{\bf // Determines whether all the elements in a given array are distinct}\cr
+\+{\bf // Input: An array $A[0\ldots n-1]$ of real numbers}\cr
+\+{\bf // Output: Returns {\tt true} if all the elements in $A$ are distinct and {\tt false} otherwise} \cr}$$
+
+$$\vbox{\+\tt {\bf for} \cleartabs&{}\tt int i = 0; i < n; i++ $\{$\cr
+	\+&\tt {\bf for} \cleartabs&{}\tt int j = 0; j < i; j++)\cr
+	\+&&\tt {\bf if} \cleartabs&{}\tt (arr[i]==arr[j])\cr
+	\+&&&\tt{\bf return} false\cr
+	\+$\}$\cr
+	\+\tt {\bf return} true\cr
+	\+\tt$\}$\cr}$$
+
+\vskip 1cm
+\filbreak
+Here is an implementation in Javascript
+
+$$\hbox{\tt\bf function UniqueElements(arr[$\,$], n) $\{$}$$
+$$\vbox{\settabs 1 \columns
+\+{\bf // Determines whether all the elements in a given array are distinct}\cr
+\+{\bf // Input: An array $A[0\ldots n-1]$ of real numbers}\cr
+\+{\bf // Output: Returns {\tt true} if all the elements in $A$ are distinct and {\tt false} otherwise} \cr}$$
+
+$$\vbox{\+\tt {\bf for} \cleartabs&{}\tt var i = 0; i < n; i++ $\{$\cr
+	\+&\tt {\bf for} \cleartabs&{}\tt var j = 0; j < i; j++)\cr
+	\+&&\tt {\bf if} \cleartabs&{}\tt (arr[i]==arr[j])\cr
+	\+&&&\tt{\bf return} false\cr
+	\+$\}$\cr
+	\+\tt {\bf return} true\cr
+	\+\tt$\}$\cr}$$
+
+\vskip 1cm
+Here is an implementation in Python
+
+$$\hbox{\tt\bf def UniqueElements(arr, n) $\{$}$$
+$$\vbox{\settabs 1 \columns
+\+{\bf // Determines whether all the elements in a given array are distinct}\cr
+\+{\bf // Input: An array $A[0\ldots n-1]$ of real numbers}\cr
+\+{\bf // Output: Returns {\tt true} if all the elements in $A$ are distinct and {\tt false} otherwise} \cr}$$
+
+$$\vbox{\+\tt {\bf for}\cleartabs&\tt{} i in len(arr):\cr
+	\+&\tt {\bf for}\cleartabs&\tt{} j in i:\cr
+	\+&&\tt {\bf if} \cleartabs&{}\tt (arr[i]==arr[j])\cr
+	\+&&&\tt{\bf return} false\cr
+	\+\tt {\bf return} true\cr}$$
+
+\filbreak
+The measure of the input's size here is $n$, the number of elements in the array. Since the innermost loop contains a single operation (the comparison of two elements), we should consider it as the algorithm's basic operation. Note, that the number of element comparisons depends not only on $n$ but also on whether there are equal elements in the array and, if there are, which array positions they occupy.
+
+\vskip 1mm
+By definition, the worst case input is an array for which the number of element comparisons $C_{\hbox{worst}(n)}$ is the largest among all arrays of size $n$. An inspection of the innermost loop reveals that there are two kinds of worst-case inputs---inputs for which the algorithm does not exit the loop prematurely: arrays with no equal elements and arrays in which the last two elements are the only pair of equal elements. For such inputs, one comparison is made for each repetition of the innermost loop, i.e., for each value of the loop variable $j$ between its limits $i+1$ and $n-1$; this is repeated for each value of the outer loop, i.e., for each value of the loop variable $i$ between its limits $0$ and $n-2$. Accordingly, we get
+
+$$\eqalign{C_{\hbox{worst}}(n)&=\sum^{n-2}_{i=0}\sum^{n-1}_{j=i+1}1=\sum^{n-2}_{i=0}\bigl[(n-1)-(i+1)+1\bigr]=\sum^{n-2}_{i=0}(n-1-i)\cr
+				&=\sum^{n-2}_{i=0}(n-1)-\sum^{n-2}_{i=0}i=(n-1)\sum^{n-2}_{i=0}1-{(n-2)(n-1)\over 2}\cr
+				&=(n-1)^2-{(n-2)(n-1)\over 2}={)n-1)n\over 2}\approx {1\over 2}n^2\in\Theta(n^2)\cr}$$
+
+We could have computed the sum $\sum\limits^{n-2}_{i=0}(n-1-i)$
+
+$$\sum^{n-2}_{i=0}(n-1-i)=(n-1)+(n-2)+\cdots+1={(n-1)n\over 2}$$
+
+In the worst case, the algorithm needs to compare all $n(n-1)/2$ distinct pairs of its $n$ elements.
+
+%$$\vbox{\+\bf \cleartabs& \cr
+%	\+\cr
+%	\+\cr
+%	\+\cr}$$
+
+\vfill\eject
+\bye

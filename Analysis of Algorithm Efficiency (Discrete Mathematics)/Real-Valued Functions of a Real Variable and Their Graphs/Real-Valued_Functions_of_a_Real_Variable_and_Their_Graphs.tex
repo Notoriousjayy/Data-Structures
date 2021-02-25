@@ -1,0 +1,134 @@
+{\bf Real-Valued Functions of a Real Variable and Their Graphs}
+\vskip 1mm
+\hrule
+
+\vskip 1cm
+A {\bf Cartesian plane} or {\bf two-dimensional Cartesian coordinate system} is a pictorial representation of $R\times R$ obtained by setting up a one-to-one correspondence between ordered pairs of real numbers and points in a {\bf Eculidean plane}. To obtain it, two perpendicular lines, called the {\bf horizontal} and {\bf vertical axes}, are drawn in the plane. Their points of intersection is called the {\bf origin}, and a unit of distance is chosen for each axis. An ordered pair $(x,y)$ of real numbers corresponds to the point $P$ that lies $|x|$ units to the right or left of the vertical axis and $|y|$ units above or below the horizontal axis.
+
+\vskip 1mm
+A {\bf real-valued function of a real variable} is a function from one set of real numbers to another. If $f$ is such a function, then for each real number of $x$ in the domain of $f$, there is a unique corresponding real number $f(x)$. Thus it is possible to define the {\bf graph of $f$}:
+
+\vskip 3mm
+{\bf Definition}
+
+\vskip 1mm
+Let $f$ be a real-valued function of a real number variable. The {\bf graph of $f$} is the set of all points $(x,y)$ in the Caretensian coordinate plane with the property that $x$ is in the domain of $f$ and $y=f(x)$.
+
+\vskip 1mm
+The definition of a graph means that for all $x$ in the domain of $f$:
+
+$$y=f(x)\quad\Leftrightarrow\quad\hbox{the point $(x,y)$ lies on the graph of $f$}$$
+
+Note that if $f(x)$ can be written as an algebriaic expression in $x$, the graph of the function $f$ is the same as the graph of the equation $y=f(x)$ where $x$ is restricted to lie in the domain of $f$.
+
+\filbreak
+\vskip 3mm
+{\bf Power Functions}
+
+\vskip 1mm
+A function that sends a real number $x$ to a particular power, $x^a$, is called a {\bf power function}.
+
+\vskip 3mm
+{\bf Definition}
+
+\vskip 1mm
+Let $a$ be any non-negative real number. Define $p_a$, the {\bf power function with exponent $a$}, as follows:
+
+$$p_a(x)=x^a\qquad\hbox{for each non-negative real number $x$.}$$
+
+\filbreak
+\vskip 1cm
+{\bf The Flooring Function}
+For each real number $x$, there exists a unique integer $n$ such that $n\leq x < n+1$. The floor of a number is the integer immediately to its left on the number line. More formally, the floor function $F$ is defined by the rule
+
+$$\eqalign{F(x)&=\lfloor x \rfloor\cr
+		&=\hbox{ the greatest integer that is less than or equal to $x$}\cr
+		&=\hbox{ the unique integer $n$ such that $n\leq x < n+1$}\cr}$$
+
+\filbreak
+\vskip 1cm
+{\bf Graph of a Multiple of a Function}
+
+\vskip 1mm
+A multiple of a function is obtained by multiplying every value of the function by a fixed number. 
+
+\vskip 3mm
+{\bf Definition}
+
+\vskip 1mm
+Let $f$ be a real-vaued function of a real variable that let $M$ be any real number. The function $Mf$, called the {\bf multiple of $f$ by $M$} or {\bf $M$ times $f$}, is the real-valued function with the same domain as $f$ that is defined by the rule
+
+$$(Mf)(x)=M\cdot(f(x))\qquad\hbox{for all $x\in$ domain of $f$}$$
+
+If $f$ is a function and $M$ is a real number, the height of the graph of $Mf$ at any real number $x$ is $M$ times the quantity $f(x)$.
+
+\filbreak
+\vskip 1cm
+{\bf Increasing and Decreasing Functions}
+
+\vskip 1mm
+The {\bf absolute value function} is defined as follows:
+
+$$A(x)=|x|=\cases{x&\hbox{if $x\geq 0$}\cr
+		-x&\hbox{if $x<0$}\cr}$$
+
+for all real numbers $x$.
+
+\vskip 1mm
+When $x\geq 0$, the graph $A$ is the same as the graph of $y=x$, the straight line with slop $1$ that passes through the origin $(0,0)$. For $x<0$, the graph $A$ is the same as the graph of $y=-x$, which is the straight line with slope $-1$ that passes through $(0,0)$.
+
+\vskip 1mm
+Note that as you trace from left to right along the graph to the left of the origin, the height of the graph continually decreases. For this reason, the absolute value function is said to be decreasing on the set of real numbers less than 0. As you trace from left to right along the graph to the right of the origin, the height of the graph continually increases. Consequently, the absolute value function is said to be increasing on the set of real number greater than 0.
+
+\vskip 1mm
+Since the height of the graph of a function $f$ at a point $x$ is $f(x)$, these geomtric concepts translate to the following analytic definition.
+
+\vskip 3mm
+{\bf Definition}
+
+\vskip 1mm Let $f$ be a real-valued function defined on a set of real numbers, and suppose the domain of $f$ contains a set $S$. We say that $f$ is {\bf increasing on the set $S$} if, and only if,
+
+$$\hbox{for all real numbers $x_1$ and $x_2$ in $S$, if $x_1<x_2$ then $f(x_1)<f(x_2)$}$$
+
+We say that $f$ is {\bf decreasing on the set $S$} if, and only if,
+
+$$\hbox{for all real numbers $x_1$ and $x_2$ in $S$, if $x_1<x_2$ then $f(x_1)>f(x_2)$}$$
+
+We say that $f$ is an {\bf increasing} {\bf(}or {\bf decreasing) function} if, and only if, $f$ is increasing (or decreasing on its entire domain.
+
+\vskip 1mm
+It follows immediately from the definitions that both increasing functions and decreasing functions are one-to-one.
+
+
+\filbreak
+\vskip 1cm
+{\bf Example 5: A Positive Multiple of an Increasing Function is Increasing}
+
+\vskip 1mm
+Suppose that $f$ is a real-valued function of a real variable that is increasing on a set $S$ of real numbers, and suppose $M$ is any positive real numbers. Show that $Mf$ is also increasing on $S$
+
+\vskip 3mm
+{\bf Solution}
+
+\vskip 1mm
+Suppose $x_1$ and $x_2$ are particular but arbitrarily chosen elements of $S$ such that
+
+$$x_1<x_2$$
+
+We must show that $(Mf)(x_1)<(Mf)(x_2)$. From the fact that $x_1<x_2$ and $f$ is increasing, it follows that
+
+$$f(x_1)<f(x_2)$$
+
+Then
+
+$$Mf(x_1)<Mf(x_2)$$
+
+since multiplying both sides of the inequality by a positive number does not change the direction of the inequality. Hence, by definition of $Mf$,
+
+$$(Mf)(x_1)<(Mf)(x_2)$$
+
+and, consequently, $Mf$ is increasing on $S$.
+
+\filbreak
+\vfill\eject
+\bye

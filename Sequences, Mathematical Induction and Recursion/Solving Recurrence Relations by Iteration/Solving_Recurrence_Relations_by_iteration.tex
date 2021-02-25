@@ -1,0 +1,377 @@
+{\bf Solving Recurrence Relations by Iteration}
+\vskip 1mm
+\hrule
+
+\vskip 1cm
+Suppose you have a sequence that satisfies a certain recurrence relations and initial conditions. It is often helpful to know an explicit formula for the sequence, especially if you need to compute terms with very large subscripts or if you need to examine general properties of the sequence. Such an explicit formula is called a {\bf solution} to the recurrence relation.
+
+\vskip 1cm
+{\bf The Method of Iteration}
+
+\vskip 1mm
+The most basic method for finding an explicit formula for a recursively defined sequence is {\bf iteration}. Iteration works as follows: Given a sequence $a_0,a_1,a_2,\ldots$ defined by a recurrence relation and initial conditions, you start from the initial conditions and calculate successive terms of the sequence until you see a pattern developing. At that point you guess an explicit formula.
+
+\vskip 1cm
+{\bf Example 1: Finding an Explicit Formula}
+
+\vskip 1mm
+Let $a_0,a_1,a_2,\ldots$ be the sequence defined recursively. For all integers $k\geq 1$,
+
+$$\eqalign{a_k&=a_{k-1}+2\qquad\hbox{\bf recurrence relation (1)}\cr
+	a_0&=1\qquad\qquad\qquad\hbox{\bf initial conditions (2)}}$$
+
+Use iteration to guess an explicit formula for the sequence.
+
+\vskip 3mm
+{\bf Solution}
+
+\vskip 1mm
+Recall that to say
+
+$$a_k=a_{k-1}+2$$
+
+means
+
+$$a_\bigcirc=a_{\bigcirc-1}+2$$
+
+no matter what positive integers is placed into the circle $\bigcirc$
+
+\vskip 1mm
+In particular,
+
+$$\eqalign{a_1&=a_0+2\cr
+	a_2&=a_1+2\cr
+	a_3&=a_2+2}$$
+
+and so forth. Now use the initial condition to begin a process of substitutions into these equations, not just of numbers but of numerical expressions.
+
+\vskip 1mm
+The reason for using numerical expressions rather than numbers is that in these problems we are seeking a numerical pattern that underlies a general formula. The secret of success is to leave most of the arithmetic undone. However, you need to eliminate parentheses as you go from one step to the next. Also, it is nearly always helpful to use shorthand notations for regrouping additions, subtractions, and multiplications of numbers that repeat. Thus for instance, you would write
+
+$$5\cdot 2\qquad\hbox{instead of } 2+2+2+2+2$$
+
+\vskip 1mm
+and
+
+$$2^5\qquad\hbox{instead of } 2\cdot 2\cdot 2\cdot 2\cdot 2$$
+
+\vskip 1mm
+Notice that you don't lose any information about the number patterns when you use these shorthand notations.
+
+\vskip 1mm
+Here's how the process works for the given sequence:
+
+$$\eqalign{a_0&=1\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\hbox{\bf initial condition}\cr
+		a_1&=a_0+2=1+2\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\hbox{\bf by substitution}\cr
+		a_2&=a_1+2=(1+2)+2=1+2+2\cr
+		a_3&=a_2+2=(1+2+2)+2=1+2+2+2\cr
+		a_4&=a_3+2=(1+2+2+2)+2=1+2+2+2+2}$$
+
+Since it appears helpful to use the shorthand $k\cdot 2$ in place of $2+2+\cdots+2$ ($k$ times), we do so, starting again from $a_0$.
+
+$$\eqalign{a_0&=1=1+0\cdot 2\qquad\qquad\qquad\qquad\qquad\qquad\hbox{\bf initial contion}\cr
+		a_1&=a_0+2=1+2=1+1\cdot 2\qquad\qquad\qquad\hbox{\bf by substitution}\cr
+		a_2&=a_1+2=(1+2)+2=1+2\cdot 2\cr
+		a_3&=a_2+2=(1+2\cdot 2)+2=1+3\cdot 2\cr
+		a_4&=a_3+2=(1+3\cdot 2)+2=1+4\cdot 2\cr
+		a_5&=a_4+2=(1+4\cdot 2)+2=1+5\cdot 2\cr
+		\vdots\cr
+		a_n&=1+n\cdot 2=1+2n\cr}$$
+
+The answer obtained for this problem is just a guess. To be sure of correctness of this guess, we will need to check it by mathematical induction.
+
+\vskip 1mm
+A sequence like in Example 1, in which each term equals the previous term plus a fixed constant, is called an {\bf arithmetic sequence}. 
+
+\filbreak
+\vskip 1cm
+{\bf Example 2: An Arithmetic Sequence}
+
+\vskip 1mm
+Under the force of gravity, an object falling in a vacuum falls about $9.8$ meters per second (m/sec) faster each second than it fell the second before. Thus, neglecting air resistance, a skydiver's speed upon leaving an airplane is approximately $9.8$ m/sec one second after departure, $9.8+9.8=19.6$ m/sec two seconds after departure, and so fourth. If air resistance is neglected, how fast would the skydiver be falling $60$ seconds after leaving the airplane?
+
+\vskip 3mm
+{\bf Solution}
+
+\vskip 1mm
+Let $s_n$ be the skydiver's speed in m/sec $n$ seconds after exiting the airplane if there were no air resistance. Thus $s_0$ is the initial speed, and since the diver would travel $9.8$ m/sec faster each second than the second before,
+
+$$s_k=s_{k-1}+9.8\hbox{ m/sec}\qquad\hbox{for all integers $k\geq 1$}$$
+
+It follos that $s_0,s_1,s_2,\ldots$ is an arithmetic sequence with a fixed constant of $9.8$, and thus
+
+$$s_n=s_0+(9.8)n\qquad\hbox{for each integer $n\geq 0$}$$
+
+Hence sixy seconds after exiting and neglecting air resistance, the skydiver would travel at a speed of
+
+$$s_{60}=0+(9.8)(60)=588\hbox{ m/sec}$$
+
+In an arithmetic sequence, each term equals the previous term plus a fixed constant. In a geometric sequence, each term equals the previous term {\bf times} a fixed constant. Geomretic sequences arise in a large variety of applications, such as compouond interest certain models of population growth, radioactive decay, $\underline{\hbox{and the number of operations needed to execute certain computer algorithms}}$
+
+\filbreak
+\vskip 1cm
+{\bf Example 3: The Explicit Formula for a Geometric Sequence}
+
+\vskip 1mm
+Let $r$ be a fixed nonzero constant, and suppose a sequence $a_0,a_1,a_2,\ldots$ is defined recursively as follows:
+
+$$\eqalign{a_k&=ra_{k-1}\qquad\hbox{\bf for all integers $k\geq 1$}\cr
+		a_0&=a\cr}$$
+
+
+Use iteration to guess an explicit formula for this sequence.
+
+\vskip 3mm
+{\bf Solution}
+\vskip 1mm
+$$\eqalign{a_0&=a\cr
+		a_1&=ra_0=ra\cr
+		a_2&=ra_1=r(ra)=r^2a\cr
+		a_3&=ra_2=r(r^2a)=r^3a\cr
+		a_4&=ra_3=r(r^3a)=r^4a\cr
+		\vdots\cr
+		a_n&=r^na=ar^n\qquad\hbox{\bf for any arbitrary integer $n\geq 0$}\cr}$$
+
+\filbreak
+\vskip 1cm
+{\bf Using Formulas to Simplify Solutions Obtained by Iteration}
+
+\vskip 1mm
+Explicit formulas obtained by iteration can often be simplified by using formulas. For instance, according to the formula for the sum of a geometric sequencde with initial term 1, for each real number $r$ except $r=1$
+
+$$1+r+r^2+\cdots+r^n={r^{n+1}-1\over r-1}\qquad\hbox{\bf for all integers $n\geq 0$}$$
+
+and according to the formula for the sum of the first $n$ integers
+
+$$1+2+3+\cdots+n={n(n+1)\over 2}\qquad\hbox{\bf for all integers $n\geq 1$}$$
+
+\filbreak
+\vskip 1cm
+{\bf Example 5: An Explicit Formula for the Tower of Hanoi Sequence}
+
+\vskip 1mm
+The Tower of Hanoi sequence $m_1.m_2,m_3,\ldots$ satisfies the recurrence relation
+
+$$m_k=2m_{k-1}+1\qquad\hbox{\bf for all integers $k\geq 2$}$$
+
+and has the initial condition
+
+$$m_1=1$$
+
+\vskip 1mm
+Use iteration to guess an explicit formula for this sequence.
+
+\vskip 3mm
+{\bf Solution}
+
+\vskip 1mm
+By iteration
+
+$$\eqalign{m_1&=1\cr
+		m_2&=2m_1+1=2\cdot 1+1=2^1+1\cr
+		m_3&=2m_2+1=2(2+1)+1=2^2+2+1\cr
+		m_4&=2m_3+1=2(2^2+2+1)+1=2^3+2^2+2+1\cr
+		m_5&=2m_4+1=2(2^3+2^2+2+1)+1=2^4+2^3+2^2+2+1}$$
+
+These calculations show that each term up to $m_5$ is a sum of successive powers of $2$, starting with $2_0=1$ and going up to $2^k$, where $k$ is $1$ less than the subscript of the term. The pattern would seem to continue to higher terms because each term is obtained from the preceeding one by multiplying by $2$ and adding $1$; multiplying by $2$ raises the exponent of each component of the sum by $1$, and adding $1$ adds back that $1$ that was lost when the previous $1$ was multiplies by $2$, for $n=6$,
+
+$$m_6=2m_5+1=2(2^4+2^3+2^2+2+1)+1=2^5+2^4+2^3+3^2+2+1$$
+
+Thus it seems that, in general
+
+$$m_n=2^{n-1}+n^{n-2}+\cdots+2^2+2+1$$
+
+By the formula for the sum of a geometric sequence
+
+$$2_{n-1}+2^{n-2}+\cdots+2^2+2+1={2^n-1\over 2-1}=2^n-1$$
+
+Hence the explicit formula seems to be
+
+$$m_n=2^n-1\qquad\hbox{\bf for all integers $n\geq 1$}$$
+
+\filbreak
+\vskip 1cm
+{\bf Example 6: Using the Formula for the Sum of the First $n$ Positive Integers}
+
+\vskip 1mm
+Ket $K_n$ be the picture obtained by drawing $n$ vertices and joining each pair of vertices by an edge. $K_5$ can be obtained from $K_4$ by adding one vertex and drawing edges between this new vertex and all the vertices of $K_4$. The reason this procedure gives the correct result is that each pair of vertices consisting of an old one and the new one.
+
+\vskip 1mm
+Thus, the number of edges of $K_5=4+\hbox{ the number of edges of $K_4$}$ By the same reasoning, for all integers $k\geq 2$, the number of edges of $K_k$ is $k-1$ more than the number of edges of $K_{k-1}$. That is, if for each integer $n\geq 1$
+
+$$s_n=\hbox{ the number of edges of $K_n$}$$
+
+then
+
+$$s_k=s_{k-1}+(k-1)\qquad\hbox{\bf for all integers $k\geq 2$}$$
+
+Note that $s_1$, is the number of edges in $K_1$, which is $0$, and use iteration to find the explicit formula for $s_1,s_2,s_3,\ldots$
+
+\vskip 3mm
+{\bf Solution}
+
+\vskip 1mm
+
+Because
+
+$$s_k=s_{k-1}+(k-1)\qquad\hbox{\bf for all integers $k\geq 2$}$$
+
+and
+
+$$s_1=0$$
+
+then, in particular,
+
+$$\eqalign{s_2&=s_1+1=0+1\cr
+		s_3&=s_2+2=(0+1)+2=0+1+2\cr
+		s_4&=s_3+3=(0+1+2)+3=0+1+2+3\cr
+		s_5&=s_4=(0+1+2+3)+4=0+1+2+3+4\cr
+		\vdots\cr
+		s_n=0+1+2+\cdots(n-1)\cr}$$
+
+But by the Sum of the First $n$ Integers theorem
+
+$$0+1+2+3+\cdots+(n-1)={n(n-1)\over 2}$$
+
+Hence it appears that
+
+$$s_n={n(n-1)\over 2}$$
+
+\filbreak
+\vskip 1cm
+{\bf Example 7: Using Mathematical Induction to Verify the Correctness of a Solution to a Recurrence Relation}
+
+\vskip 1mm
+Use mathematical induction to show that the explicit formula for the Tower of Hanoi is correct.
+
+\vskip 3mm
+{\bf Solution}
+
+\vskip 1mm
+Given a sequence of numbers that satisfies a certain recurrence relation and initial condition, our job is to show that each term of the sequence satisfies the proposed explicit formula. In this case, you need to prove the following statement:
+
+If $m_1,m_2,m_3,\ldots$ is the sequence defined by
+
+$$\eqalign{m_k&=2m_{k-1}+1\qquad\hbox{\bf for all integers $k\geq 2$, and}\cr
+		m_1&=1\cr}$$
+
+then
+$$m_n=2^n-1\qquad\hbox{\bf for all integers $n\geq 1$}$$
+
+\vskip 3mm
+{\bf Proof of Correctness:}
+
+\vskip 1mm
+Let $m_1,m_2,m_3,\ldots$ be the sequence defined by specifying that $m_1=1$ and $m_k=2m_{k+1}+1$ for all integers $k\geq 2$, and let the property $P(n)$ be the equation
+
+
+$$m_n=2^n-1\qquad\gets P(n)$$
+
+we will use mathematical induction to prove that for all integers $n\geq 1$, $P(n)$ is true.
+
+\vskip 3mm
+{\bf Show that $P(n)$ is true:}
+
+\vskip 1mm
+To establish $P(1)$, we must show that
+
+$$m_1=2^1-1\qquad\gets P(1)$$
+
+But the left-hand side of $P(1)$ is
+
+$$m_1=1\qquad\hbox{\bf by definition of $m_1,m_2,m_3,\ldots$}$$
+
+\vskip 1mm
+and the right-hand side of $P(1)$ is
+
+$$2^1-1=2-1=2=1$$
+
+Thus the two sides of $P(1)$ equal the same quantity, and hence $P(1)$ is true.
+
+\vskip 3mm
+{\bf Show that for all integers $k\geq 1$, if $P(k)$ is true then $P(k+1)$ is also true:}
+
+\vskip 1mm
+Suppose that $k$ is any integer with $k\geq 1$ such that
+
+$$m_k=2^k-1\qquad\hbox{$P(k)$ inductive hypothesis}$$
+
+We must show that
+
+$$m_{k+1}=2^{k+1}-1$$
+
+But the left-hand side of $P(k+1)$ is
+
+$$\eqalign{m_{k+1}&=2m_{(k+1)-1}+1\qquad\hbox{\bf by definition of $m_1,m_2,m_3,\ldots$}\cr
+		&=2m_k+1\cr
+		&=2(2^k-1)+1\qquad\hbox{\bf by substitution from the inductive hypothesis}\cr
+		&=2^{k+1}-2+1\qquad\hbox{\bf by the distribution law and the fact that $2\cdot 2^k=2^{k-1}$}\cr
+		&=2^{k+1}-1\cr}$$
+
+Which equals the right-hand side of $P(k+1)$.
+
+\filbreak
+\vskip 1cm
+{\bf Example 8: Using Verification by Mathematical Induction to Find a Mistake}
+
+\vskip 1mm
+Let $c_0,c_1,c_2,\ldots$ be the sequence defined as follows:
+
+$$\eqalign{c_k&=2c_{k-1}+k\qquad\hbox{\bf for all integers $k\geq 1$}\cr
+		c_0&=1\cr}$$
+
+Suppose your calculations suggest that $c_0,c_1,c_2,\ldots$ satisfies the following explicit formula:
+
+$$c_n=2^n+n\qquad\hbox{\bf for all integers $n\geq 0$}$$
+
+Is this formula correct?
+
+\vskip 3mm
+{\bf Solution}
+
+\vskip 1mm
+Start to prove the statement by mathematical induction and see what develops. The proposed formula passes the basis step of the inductive proof with no trouble, for on the one hand, $c_0=1$ by definition and on the other hand, $2^0+0=1+0=1$ also.
+
+\vskip 1mm
+In the inductive step, you suppose
+
+$$c_k=2^k+k\qquad\hbox{\bf for some integer $k\geq 0$}\qquad\hbox{\bf $\gets$ This is the inductive step}$$
+
+and then you must show that
+
+$$c_{k+1}=2^{k+1}+(k+1)$$
+
+To do this, you start with $c_{k+1}$, substitute from the recurrence relation, and then use the inductive hypothesis as follows:
+
+$$\eqalign{c_{k+1}&=2c_k+(k+1)\qquad\hbox{\bf by the recurrence relation}\cr
+		&=2(2^k+k)+(k+1)\qquad\hbox{\bf by substitution from the inductive hypothesis}\cr
+		&=2^{(k+1)}+3k+1\cr}$$
+
+To finish the verification, therefore, you need to show that
+
+$$2^{k+1}+3k+1=2^{k+1}+(k+1)$$
+
+Now this equation is equivalent to
+
+$$2k=0\qquad\hbox{\bf by substracting $2^{k+1}+k+1$ from both sides}$$
+
+which is equivalent to
+
+$$k=0$$
+
+But this is false since $k$ may be any nonnegative integer.
+
+\vskip 1mm
+Observe that when $k=0$, then $k+1=1$, and
+
+$$c_1=2\cdot 1+1=3\quad\hbox{and}\quad 2^1+1=3$$
+
+Thus the formula gives the correct value for $c_1$. However, when $k=1$, then $k+1=2$, and
+
+$$c_2=2\cdot 3+2=8\quad\hbox{whereas}\quad 2^2+2=4+2=6$$
+
+So the formula does not give the correct value for $c_2$. hence the sequence $c_0,c_1,c_2,\ldots$ does not satisfy the proposed formula.
+
+\filbreak
+\vfill\eject
+\bye

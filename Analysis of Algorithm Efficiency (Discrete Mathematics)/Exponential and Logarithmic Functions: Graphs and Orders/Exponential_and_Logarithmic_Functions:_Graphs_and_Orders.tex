@@ -1,0 +1,455 @@
+{\bf Exponential and Logarithmic Functions: Graphs and Orders}
+\vskip 1mm
+\hrule
+
+\vskip 3mm
+{\bf Graphs of Exponential Functions}
+The exponential function with base $b>0$ is the function that send each real number $x$ to $b^x$. The graph of any exponential function with base $b>1$ has a shape that is similar to the graph of the exponential function with base $2$. If $0<b<1$, then ${1\over b}>0$ and the graph of the exponential function with base $b$ is the reflection across the vertical axis of the exponential function with base ${1\over b}$.
+
+\filbreak
+\vskip 1cm
+{\bf Graphs of Logarithmic Functions}
+
+\vskip 3mm
+{\bf Definition}
+\vskip 1mm
+If $b$ is a positive real number not equal to $1$, then the {\bf logarithmic function with base $b$, $\log_b:R^+\to R$}, is the function that sends each positive real number $x$ to the number $\log_bx$, which is the exponent to which $b$ must be raised to obtain $x$. 
+
+\vskip 1mm
+The logarithmic function with base $b$ is the inverse of the exponential function with base $b$. It follows that the graphs of the two functions are symmetric with respect to the line $y=x$.
+
+\vskip 2mm
+If its base $b$ is greater than $1$, the logarithmic function is increasing. Analytically, this means that
+
+\vskip 2mm
+If $b>1$, then all positive numbers $x_1$ and $x_2$,
+
+$$\hbox{if $x_1<x_2$, then $\log_b(x_1)<\log_b(x_2)$}$$
+
+\filbreak
+\vskip 1cm
+{\bf Example 1: Base $2$ Logarithms of Numbers between Two Consecutive Powers of $2$}
+
+\vskip 3mm
+Provde the following Property:
+
+\vskip 1mm
+If $k$ is an integer and $x$ is a real number with
+
+$$2^k\leq x < 2^{k+1}, \hbox{then }\lfloor\log_2x\rfloor=k$$
+
+\vskip 3mm
+{\bf Solution}
+\vskip 1mm
+{\bf Proof:}
+\vskip 1mm
+Suppose that $k$ is an integer and $x$ is a real number with
+
+$$2^k\leq x<2^{k+1}$$
+
+Because the logarithmic function with base $2$ is increasing, this implies that
+
+$$\log_2(2^k)\leq\log_2x<\log_2(2^{k+1})$$
+
+But $\log_2(2^k)=k$ and $\log_2(2^{k+1})=k+1$ Hence
+
+$$k\leq\log_2x<k+1$$
+
+By definition of the floor function, then,
+
+$$\lfloor\log_2x\rfloor=k$$
+
+The previouus property can be rewritten as
+
+\vskip 1mm
+If $x$ is a positive number that lies between two consecutive integer powers of $2$, the floor of the logarithm with base $2$ of $x$ is the exponent of the smaller power of $2$.
+
+\filbreak
+\vskip 1cm
+{\bf Example 2: When $\lfloor\log_2(n-1)\rfloor=\lfloor\log_2n\rfloor$}
+
+\vskip 3mm
+Prove the following property:
+
+\vskip 1mm
+For any odd integer $n>1$, $\lfloor\log_2(n-1)\rfloor=\lfloor\log_2n\rfloor$
+
+\vskip 3mm
+{\bf Solution}
+\vskip 1mm
+If $n$ is an odd integer that is greater than $1$, then $n$ lies strictly between two successive powers of $2$:
+
+$$2^k<n<2^{k+1}\qquad\hbox{for sime integer $k>0$}$$
+
+It follows that $2^k\leq n-1$ because $2^k<n$ and both $2^k$ and $n$ are integers. Consequently,
+
+$$2^k\leq n-1< 2^{k+a}$$
+
+Applying the property from example 1 gives
+
+$$\lfloor\log_2n\rfloor=k\qquad\hbox{and also}\quad\lfloor\log_2(n-1)\rfloor=k$$
+
+Hence $\lfloor\log_2n\rfloor=\lfloor\log_2(n-1)\rfloor$
+
+\filbreak
+\vskip 1cm
+{\bf Application: Number of Bits Needed to Represent an Integer in Binary Notation}
+
+\vskip 3mm
+Given a positive integer $n$, how many binary digits are needed to represent $n$? To answer recall that any positive integer $n$ can be written in a unique way as
+
+$$n=2^k+c_{k-1}\cdot 2^{k-1}+\cdots c_2\cdot 2^2+c_1\cdot 2+c_0$$
+
+where $k$ is a nonnegative integer and each $c_0,c_1,c_2\ldots c_{k-1}$ is either $0$ or $1$. Then the binary representation of $n$ is
+
+$$1c_{k-1}c_{k-2}\cdots c_2c_1c_0$$
+
+and so the number of binary digits needed to represent $n$ is $k+1$
+
+\vskip 1mm
+What is $k+1$ as a function of $n$? Observe that since each $c_1\leq 1$,
+
+$$n=2^k+c_{k-1}\cdot2^{k-1}+\cdots+c_2\cdot 2^2+c_1\cdot 2+c_0\leq 2^k+2^{k-1}+\cdots 2^2+2+1$$
+
+But by the formula for the sum of a geometric sequence
+
+$$2^k+2^{k-1}+\cdots+2^2+2+1={2^{k+1}-1\over 2-1}=2^{k+1}-1$$
+
+Hence, by transitivity of order
+
+$$n\leq2^{k+1}-1<2^{k+1}$$
+
+In addition, because each $c_i\geq 0$
+
+$$2^k\leq 2^k+c_{k-1}\cdot 2^{k-1}+\cdots+c_2\cdot 2^2+c_1\cdot 2+c_0=n$$
+
+Putting inequalities and together gives the double inequality
+
+$$2^k\leq n< 2^{k+1}$$.
+
+But then, by the property in example 1
+
+$$k=\lfloor\log_2n\rfloor$$
+
+Thus the number of binary bits needed to represent $n$ is $\lfloor\log_2n\rfloor+1$
+
+\filbreak
+\vskip 1cm
+{\bf Example 4: A Recurrence Relation with a Logarithmic Solution}
+
+\vskip 3mm
+Define a sequence $a_1,a_2,a_3\ldots$ recursively as follows:
+
+$$\eqalign{a_1&=1\cr
+		a_k&=2a_{\lfloor k/2\rfloor}\qquad\hbox{for all integers $k\geq 2$}\cr}$$
+
+a. Use iteration to guess an explicit formula for this sequence.
+
+\vskip 1mm
+b. Use strong mathematical induction to confirm the correctness of the formula obtained in part (a).
+
+\vskip 3mm
+{\bf Solution}
+
+a. Begin by iterating to find the values of the first few terms of the sequence.
+
+$$\eqalign{a_1&=1\cr
+	a_2&=2a_{\lfloor 2/2\rfloor}=2a_1=2\cdot 1=2\cr
+	a_3&=2a_{\lfloor 3/2\rfloor}=2a_1=2\cdot 1=2\cr
+	a_4&=2a_{\lfloor 4/2\rfloor}=2a_2=2\cdot 2=4\cr
+	a_5&=2a_{\lfloor 5/2\rfloor}=2a_2=2\cdot 2=4\cr
+	a_6&=2a_{\lfloor 6/2\rfloor}=2a_3=2\cdot 2=4\cr
+	a_7&=2a_{\lfloor 7/2\rfloor}=2a_3=2\cdot 2=4\cr
+	a_8&=2a_{\lfloor 8/2\rfloor}=2a_4=2\cdot 4=8\cr
+	a_9&=2a_{\lfloor 9/2\rfloor}=2a_4=2\cdot 4=8\cr
+		\vdots\cr
+	a_{15}&=2a_{\lfloor 15/2\rfloor}=2a_7=2\cdot 4=8\cr
+	a_{16}&=2a_{\lfloor 16/2\rfloor}=2a_8=2\cdot 8=16\cr
+		\vdots\cr}$$
+
+Note that in each case when the subscript $n$ between two powers of $2$, $a_n$ equals the smaller power of $2$. More precisely:
+
+$$\hbox{If $2^i\leq n<2^{i+1}$, then $a_n=2^i$.}$$
+
+But since $n$ satisfies the inequality
+
+$$2^i\leq n < 2^{i+1}$$
+
+then by the property in example 1
+
+$$i=\lfloor\log_2 n\rbrack$$
+
+Substituting into If $2^i\leq n<2^{i+1}$, then $a_n=2^i$ gives
+
+$$a_n=2^{\lfloor\log_2 n\rfloor}$$
+
+b. The following proof shows that if $a_1,a_2,a_3,\ldots$ is a sequence of numbers that satisfies
+
+$$a_1=1\quad a_k=2a_{\lfloor k/2\rfloor}\qquad\hbox{for all integers $k\geq 2$}$$
+
+then the sequence satisfies the formula
+
+$$a_n=2^{\lfloor\log_2 n\rfloor}\qquad\hbox{for all integers $n\geq 1$}$$
+
+\vskip 3mm
+{\bf Proof}
+\vskip 1mm
+Let $a_1,a_2,a_3,\ldots$ be the sequence defined by specifying that $a_1=1$ and $a_k=2_{\lfloor a_{k/2}\rfloor}$ for all integers $k\geq 2$, and let the property $P(n)$ be the equation
+
+$$a_n=2^{\lfloor\log_2 n\rfloor}\qquad\quad\quad\gets P(n)$$
+
+We will use strong mathematical induction to prove that for all integers $n\geq 1$, $P(n)$ s true
+
+\vskip 1mm
+{\bf Show that $P(1)$ is true:} By definition of $a_1,a_2,a_3,\ldots$, we have that $a_1=1$. But it is also the case that $2^{\lfloor\log_2 1\rfloor}=2^0=1$. Thus $a_1=1=2^{\lfloor\log_2 1\rfloor}$ and $P(1)$ is true.
+
+
+\vskip 1mm
+{\bf Show that for all integers $k\geq 1$, if $P(i)$ is true for all integers $i$ from $1$ through $k$, then $P(k+1)$ is also true:} Let $k$ be any integers with $k\geq 1$, and suppose that
+
+$$a_i=2^{\lfloor\log_2 i\rfloor}\qquad\hbox{for all integers $i$ with $1\geq i\geq k$\qquad\quad$\gets$ inductive hypothesis}$$
+
+We must show that
+
+$$a_{k+1}=2^{\lfloor\log_2(k+1)\rfloor}\qquad\quad\quad\gets P(k+1)$$
+
+\vskip 1mm
+Consider the two cases: $k$ is even and $k$ is odd
+
+\vskip 1mm
+{\bf Case 1:}
+
+$$\eqalign{a_{k+1}&=2a_{\lfloor(k+1)/2\rfloor}\cr
+		&=2a_{\lfloor k/2\rfloor}\cr
+		&=2\cdot 2^{\lfloor k/2\rfloor}\cr
+		&=2^{\lfloor (k/2)+1\rfloor}\cr
+		{}\cr
+		&=2^{\lfloor\log_2 (k/2)\rfloor+1}\cr
+		&=2^{\lfloor\log_2 k-\log_2 2\rfloor+1}\cr
+		{}\cr
+		&=2^{\lfloor\log_2 k-1\rfloor+1}\cr
+		&=2^{\lfloor\log_2 k\rfloor-1+1}\cr
+		&=2^{\lfloor\log_2 k\rfloor}\cr
+		&=2^{\lfloor\log_2 (k+1)\rfloor+1}\cr}$$
+
+{\bf Case 2 ($k$ is odd)}
+
+\vskip 2mm
+Thus in either case, $a_n=2^{\lfloor\log_2(k+1)\rfloor}$
+
+\filbreak
+\vskip 1cm
+{\bf Exponential and Logarithmic Orders}
+\vskip 3mm
+How do graphs of logarithmic and exponential functions compare with graphs of power functions? It turns out that for large values of $x$, the graph of the logarithmic function with any base $b>1$ lies below the graph of any positive power function, and the graph of the exponential function with any base $b>1$ lies above the graph of any positive power function. In analytic terms, this says the following:
+
+\vskip 2mm
+For all real numbers $b$ and $r$ with $b>1$ and $r>0$
+
+$$\log_b x\leq x^r\qquad\hbox{for all sufficiently large real numbers $x$}$$
+
+and
+
+$$x^r\leq b^x\qquad\hbox{for all sufficiently large real numbers of $x$}$$
+
+These statements have the following implications for $O$-notation.
+
+\vskip 3mm
+For all real numbers $b$ and $r$ with $b>1$ and $r>0$
+
+$$\log_bx\qquad\hbox{is}\quad O(x^r)$$
+
+and
+
+$$x^r\qquad\hbox{is}O(b^x)$$
+
+\vskip 2mm
+Another important function in the analysis of algorithms is the function $f$ defined by the formula
+
+$$f(x)=x\log_bx\qquad\hbox{for all real numbers $x>0$}$$
+
+For large values of $x$, the graph of this function fit in between the graph of the identity function and the graph of the squaring function. More precisely:
+
+\vskip 2mm
+For all real numbers $b$ with $b>1$ and for all sufficiently large real numbers $x$,
+
+$$x\leq x\log_bx\leq x^2$$.
+
+\vskip 2mm
+
+The $O$-notation versions of these facts are as follows:
+
+\vskip 2mm
+For all real numbers $b>1$,
+
+$$x\quad\hbox{is}\quad O(x\log_bx)\quad\hbox{and}\quad x\log_bx\quad\hbox{is}\quad O(x^2)$$
+
+\filbreak
+\vskip 1cm
+{\bf Example 5: Deriving an Order from Logarithmic Inequalities}
+
+\vskip 3mm
+Show that $x+x\log_2x$ is $\Theta(x\log_2x)$.
+
+\vskip 3mm
+First observe that $x+x\log_2x$ is $\Omega(x\log_2x)$ because for all real numbers $x>1$,
+
+$$x\log_2x\leq x+x\log_2x$$
+
+and since all quantities are positive,
+
+$$|x\log_2x|\leq|x+x\log_2x|$$
+
+Let $A=1$ and $a=1$. Then
+
+$$A|x\log_2x|\leq|x+x\log_2x|\qquad\hbox{for all $x>a$}$$
+
+Hence, by definition of $\Omega$-notation
+
+$$x+x\log_2x\quad\hbox{is}\quad\Omega(x\log_2x)$$
+
+To show that $x+x\log_2x$ is $O(x\log_2x)$, note that according to the property for all real numbers $b$ with $b>1$ with $b=2$, there is a number $b$ such that for all $x>b$
+
+$$\eqalign{x&<x\log_2x\cr
+	\Rightarrow x+x\log_2x&< 2x\log_2x}$$
+
+Thus, if $b$ is taken to be greater than $2$, then
+
+$$|x+x\log_2x|<2|x\log_2x|$$
+
+Let $B=2$. Then
+
+$$|x+x\log_2x|\leq B|x\log_2x|\qquad\hbox{for all $x>b$}$$
+
+Hence, by definition of $O$-notation
+
+$$x+x\log_2x\quad\hbox{x}\quad O(x\log_2x)$$
+
+Therefore, since $x+x\log_2x$ is $\Omega(x\log_2x)$ and $x+x\log_2x$ is $O(x\log_2x)$, by Theorem: Properties of $O$-,$\Omega$-, and $\Theta$- notations
+
+$$x+x\log_2x\quad\hbox{is}\quad \Theta(x\log_2x)$$
+
+\filbreak
+\vskip 1cm
+{\bf Example 6: Logarithm Base $b$ Is Big-Theta of Logarithm with Base $c$}
+
+\vskip 3mm
+Show that if $b$ and $c$ are real numbers such that $b>1$ and $c>1$, then $\log_bx$ is $\Theta(\log_cx)$.
+
+\vskip 3mm
+{\bf Solution}
+\vskip 1mm
+Suppose $b$ and $c$ are real numbers and $b>1$ and $c>1$. To show that $\log_bx$ is $\Theta(\log_cx)$, positive real numbers $A,B$, and $k$ must be found such that
+
+$$A|\log_cx|\leq|\log_bx|\leq B|\log_cx|\qquad\hbox{for all real numbers $x>k$.}$$
+
+by part (d) of the Properties of Logarithms
+
+$$\log_bx={\log_cx\over\log_cb}=\Biggl({1\over\log_c b}\Biggr)\log_cx$$
+
+Since $b>1$ and the logarithmic function with base $c$ is strictly increasing, then $\log_cb>\log_c1=0$, and so ${1\over\log_cb}>0$ also. Futhermore, if $x>1$, then $\log_bx>0$ and $\log_cx>0$.
+\vskip 1mm
+
+It follows from the equation for $\log_bx$, therefore that
+
+$$\Biggl({1\over\log_cb}\Biggr)\log_cx\leq\log_bx\leq\Biggl({1\over\log_cb}\Biggr)\log_cx$$
+
+for all real numbers $x>1$. Accordingly, let $A={1\over\log_cb}, B={1\over\log_cb}$, and $k=1$. Then, since all quantities in the above inequality are positive,
+
+$$A|\log_cx|\leq|\log_bx|\leq B|\log_cx|\qquad\hbox{for all real numbers $x>k$}$$
+
+Hence, by definition of $\Theta$-notation,
+
+$$\log_bx\qquad\hbox{is}\quad\Theta(\log_cx)$$
+
+\filbreak
+\vskip 1cm
+Example 7 shows how a logarithmic order can arise from the computation of a certain kind of sum. It requires thw following fact from calculus:
+
+The area underneath the graph of $y=1/x$ betwen $x=1$ and $x=n$ equals $\ln n$, where $\ln n=\log_cn$.
+
+\vskip 1cm
+{\bf Example 7: Order of a Harmonic Sum}
+
+\vskip 3mm
+Sums of the form $1+{1\over 2}+\cdots+{1\over n}$ are called harmonic sums. They ocur in the analysis of various computer algorithms such as quick sort. Show that $1+{1\over 2}+{1\over 3}\cdots+{1\over n}$ is $\Omega(\ln n)$ by performing the steps:
+
+\vskip 1mm
+Show that 
+
+\vskip 1mm
+
+a. $${1\over 2}+{1\over 3}\cdots+{1\over n}\leq\ln n$$
+
+and
+
+$$\ln n\leq 1+{1\over 2}+{1\over 3}\cdots+{1\over n}$$
+b. Show that if $n$ is an integer that is at least $3$, then $1\leq \ln n$.
+
+\vskip 3mm
+c. Deduce from (a) and (b) that if the inteer $n$ is greater than or equal to $3$, then
+
+$$\ln n\leq 1+{1\over 2}+{1\over 3}+\cdots+{1\over n}\leq2\ln n$$
+
+\vskip 3mm
+d. Deduce from (c) that
+
+$$1+{1\over 2}+{1\over 3}+\cdots+{1\over n}\quad\hbox{is}\quad\Theta(\ln n)$$
+
+\vskip 3mm
+{\bf Solution}
+
+\vskip 1mm
+To find the area of a curve we can take the left and right riemann sum. The rectangle whose bases are the intervals between each pair of integers from $1$ to $n$ and whose heights of the graph of $y=1/x$ above the right-hand endpoints of the intervals is the Right Hand Riemann Summ. Rectangles with the same bases but whose heights are the heights of the graph above the left-hand endpoints of the intervals is Left Hand Riemann Summ.
+
+\vskip 1mm
+Now the area of each rectangle is its base times its height. Since all the rectangles have base $1$, the area of each rectangle equals its height. Thus
+
+$$\hbox{the area of the rectangle from $1$ to $2$ is }{1\over 2}$$
+
+$$\hbox{the area of the rectangle from $2$ to $3$ is }{1\over 3}$$
+\centerline{$\vdots$}
+$$\hbox{the area of the rectangle from $n-1$ to $n$ is }{1\over n}$$
+
+So the sum of the areas of all rectangles is ${1\over 2}+{1\over 3}+\cdots+{1\over n}$. This sum is less than the area underneath the graph of $f$ between $x=1$ and $x=n$, which is known to equal $n$. Hence
+
+$${1\over 2}+{1\over 3}+\cdots+{1\over n}\leq n$$
+
+A similiar analysis of the areas of the combined Left and Right Summ shows that
+
+$$\ln n\leq 1+{1\over 2}+{1\over 3}+\cdots+{1\over n}$$
+
+b. Suppose $n$ is an integer and $n\geq 3$. Since $e\approx 2.718$, then $n\geq e$. Now the logarithmic function with base $e$ is strictly increasing. Thus since $e\leq n$, then $1=\ln e\leq\ln n$
+
+\vskip 2mm
+c. By part (a)
+
+$${1\over 2}+{1\over 3}+\cdots+{1\over n}\leq\ln n$$
+
+and by part (b)
+
+$$1\leq\ln n$$
+
+Adding these two inequalities together gives
+
+$$1+{1\over 2}+{1\over 3}+\cdots+{1\over n}\leq 2\ln n\qquad\hbox{for any integer $n\geq 3$}$$
+
+d. Putting together the results of parts (a) and (c) leads to the conclusion that for all integers $n\geq 3$,
+
+$$\ln n\leq 1+{1\over 2}+{1\over 3}+\cdots+{1\over n}\leq 2\ln n$$
+
+And because all the quantities are positive for $n\geq 3$,
+
+$$|\ln n|\leq \Biggl|1+{1\over 2}+{1\over 3}+\cdots+{1\over n}\Biggr|\leq 2|\ln n|$$
+
+Let $A=1$, $B=2$, and $k=3$. Then
+
+$$A|\ln n|\leq\Biggl|1+{1\over 2}+{1\over 3}+\cdots+{1\over n}\leq 2\ln n\Biggr|\leq B|\ln n|\qquad\hbox{for all $n>k$.}$$
+
+Hence by definition of $\Theta$-notation,
+
+$$1+{1\over 2}+{1\over 3}+\cdots+{1\over n}\quad\hbox{is}\quad\Theta(\ln n)$$
+
+
+\vfill\eject
+\bye

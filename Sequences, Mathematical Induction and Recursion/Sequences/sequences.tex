@@ -1,0 +1,257 @@
+{\bf Sequences}
+\vskip 1mm
+\hrule
+
+\vskip 1cm
+In the sequence 
+
+$$a_m,a_{m+1},a_{m+2},\ldots,a_n$$
+
+each individual element $a_k$ is called a {\bf term}. The $k$ in $a_k$ is called a {\bf subscript} or {\bf index}, $m$ is the subscript of the {\bf initial term}, and $n$ is the subscript of the {\bf final term}. The notation
+
+$$a_m,a_{m+1},a_{m+2},\ldots$$
+
+denotes an {\bf infinite sequence}. An {\bf explicit formula} or {\bf general formula} for a sequence is a rule that shows how the values of $a_k$ depend on $k$.
+
+\filbreak
+\vskip 1cm
+{\bf Example 1 Finding the Terms of Sequences Given by Explicit Formulas}
+
+\vskip 3mm
+Define sequences $a_1,a_2,a_3,\ldots$ and $b_1,b_2,b_3,b_4,\ldots$ by following wxplicit formulas:
+
+$$\eqalign{a_k&={k\over j+1}\qquad\hbox{for all integers $k\geq 1$}\cr
+	{}\cr
+	b_i&={i-1\over i}\qquad\hbox{for all integers $i\geq 2$} \cr}$$
+
+{\bf Solution}
+\vskip 1mm
+Compute the first five terms of both sequences.
+$$\vbox{\settabs 2 \columns
+	\+ $a_1={1\over 1+1}={1\over 2}$& $b_2={2-1\over 2}={1\over 2}$\cr
+	\+{}\cr
+	\+ $a_2={2\over 2+1}={2\over 3}$& $b_3={3-1\over 3}={2\over 3}$\cr
+	\+{}\cr
+	\+ $a_3={3\over 3+1}={3\over 4}$& $b_4={4-1\over 4}={3\over 4}$\cr
+	\+{}\cr
+	\+ $a_4={4\over 4+1}={4\over 5}$& $b_5={5-1\over 5}={4\over 5}$\cr
+	\+{}\cr
+	\+ $a_5={5\over 5+1}={5\over 6}$& $b_6={6-1\over 6}={5\over 6}$\cr
+	\+\cr}$$
+
+\filbreak
+\vskip 1cm
+{\bf Example 2 An Alternating Sequence}
+
+\vskip 3mm
+Compute the first six terms of the sequence $c_0,c_1,\ldots$ defined as follows
+
+$$c_j=(-1)^j\qquad\hbox{for all integers $j\geq 0$}$$
+
+{\bf Solution}
+
+\vskip 1mm
+$$\eqalign{c_0&=(-1)^0=1\cr
+	c_1&=(-1)^1=-1\cr
+	c_2&=(-1)^2=1\cr
+	c_3&=(-1)^3=-1\cr
+	c_4&=(-1)^4=1\cr
+	c_5&=(-1)^5=-1\cr}$$
+
+Even powers of $-1$ equal $1$ and odd powers of $-1$ equal $-1$. The sequence oscilates between $1$ and $-1$.
+
+\filbreak
+\vskip 1cm
+{\bf Example 6 Changing from Summation Notation to Expanded Form}
+
+\vskip 1mm
+
+Write the following summation in expanded form
+
+$$\sum^n_{i=0}{(-1)^i\over i+1}$$
+
+{\bf Solution}
+\vskip 1mm
+$$\eqalign{\sum^n_{i=0}&={(-1)^0\over 0+1}+{(-1)^1\over 1+1}+{(-1)^2\over 2+1}++{(-1)^3\over 3+1}+\cdots+{(-1)^n\over n+1}\cr
+			&={1\over 1}+{(-1)\over 2}+{1\over 3}+{(-1)\over 4}+\cdots+{(-1)^n\over n+1}\cr
+			&=1-{1\over 2}+{1\over 3}-{1\over 4}+\cdots+{(-1)^n\over n+1}\cr}$$
+
+\filbreak
+\vskip 1cm
+{\bf Example 7 Changing from Expanded form to Summation Notation}
+
+\vskip 1mm
+Express the following using summation notation
+
+$${1\over n}+{2\over n+1}+{3\over n+2}+\cdots+{n+1\over 2n}$$
+
+{\bf Solution}
+\vskip 1mm
+The general term of this summation can be expressed as ${k+1\over n+k}$ for integers $k$ from $0$ to $n$.
+
+$${1\over n}+{2\over n+1}+{3\over n+2}+\cdots+{n+1\over 2n}=\sum^n_{k=0}{k+1\over n+k}$$
+
+\filbreak
+\vskip 1cm
+{\bf Example 8 Evaulating $a_1,a_2,a_3,\ldots,a_n$ for Small $n$}
+
+\vskip 1mm
+What is the value of the expression 
+
+$${1\over 1\cdot 2}+{1\over 2\cdot 3}+{1\over 3\cdot 4}+\cdots+{1\over n\cdot (n+1)}$$
+
+when $n=1$? $n=2$? $n=3$?
+
+\vskip 1mm
+{\bf Solution}
+
+$$\eqalign{\hbox{When $n$}&=1,\hbox{the expression equals } {1\over 1\cdot 2}={1\over 2}\cr
+	\hbox{When $n$}&=2,\hbox{the expression equals } {1\over 1\cdot 2}+{1\over 2\cdot 3}={1\over 2}+{1\over 6}={2\over 3}\cr
+	\hbox{When $n$}&=3,\hbox{the expression equals } {1\over 1\cdot 2}+{1\over 2\cdot 3}+{1\over 3\cdot 4}={1\over 2}+{1\over 6}+{1\over 12}={3\over 4}\cr
+	\cr}$$
+
+\filbreak
+\vskip 3mm
+A more mathematically precise definition of summation, called a {\bf recursive definition} is the following: If $m$ is any integer, then
+
+$$\sum^m_{k=m}a_k=a_m\qquad\hbox{and}\quad\sum^n_{k=m}a_k=\sum^{n-1}_{k=m}a_k+a_n\qquad\hbox{for all integers $n>m$}$$
+
+When solving , it is often useful to rewrite a summation using the recursive form of the definition, either by separating off the final term of a summation or by adding a final term to a summation.
+
+\filbreak
+\vskip 1cm
+{\bf Example 9 Separating Off a Final Term and Adding On a Final Term}
+
+\vskip 1mm
+(a) Rewrite $\sum\limits^{n+1}_{i=1}{1\over i^2}$ by separating off the final term.
+
+\vskip 1mm
+(b) Write $\sum\limits^n_{k=0}2^k+2^{n+1}$ as a single summation.
+
+{\bf Solution}
+\vskip 1mm
+$$\hbox{(a) }\sum^{n+1}_{i=1}{1\over i^2}=\sum^n_{i=1}{1\over i^2}+{1\over(n+1)^2}$$
+
+$$\hbox{(b) }\sum^n_{k=0}2^k+2^{n+1}=\sum^{n+1}_{k=0}2^k$$
+
+\filbreak
+\vskip 1cm
+{\bf Example 10 A Telescoping Sum}
+
+\vskip 1mm
+Some sums can be transformed into telescoping sums, which  then can be rewritten as a simple expression. Observe that
+
+$${1\over k}-{1\over k+1}={(k+1)-k\over k(k+1)}={1\over k(k+1)}$$
+
+Use the identity to find a simple expression for $\sum\limits^n_{k=1}{1\over k(k+1)}$
+
+\vskip 3mm
+{\bf Solution}
+$$\eqalign{\sum^n_{k=1}{1\over k(k+1)}&=\sum^n_{k=1}\Biggl({1\over k}-{1\over k+1}\Biggr)\cr
+					&=\Biggl({1\over 1}-{1\over 2}\Biggr)+\Biggl({1\over 2}-{1\over 3}\Biggr)+\Biggl({1\over 3}-{1\over 4}\Biggr)+\cdots+\Biggl({1\over n-1}-{1\over n}\Biggr)+\Biggl({1\over n}-{1\over n+1}\Biggr)\cr
+					&=1-{1\over n+1}\cr}$$
+
+\vskip 1cm
+{\bf Example 13 Transforming a Sum by a Change of Variable}
+
+\vskip 1mm
+Transform the following summation by making the specific change of variable
+
+$$\hbox{summation: }\sum^6_{k=0}{1\over k+1}\qquad\hbox{change of variable: $j=k+1$}$$
+
+{\bf Solution}
+
+\vskip 1mm
+First calculate the lower and upper limits of the new summation:
+
+$$\eqalign{\hbox{When }k&=0,\qquad j=k+1=0+1=1\cr
+	\hbox{When }k&=6,\qquad j=k+1=6+1=7\cr
+	\cr}$$
+
+Thus the new sum goes from $j=1$ to $j=7$.
+
+\vskip 1mm
+Next calculate the general term of the new summation. You will need to replace each occurrence of $k$ by an expression in $j$:
+
+$$\eqalign{\hbox{Since }j&=k+1,\qquad\hbox{then }k=j-1 \cr
+	{}\cr
+	\hbox{Hence }{1\over k+1}&={1\over (j-1)+1}={1\over j}\cr
+	\cr}$$
+
+Finally, put the steps together to obtain
+
+$$\sum^6_{k=0}{1\over k+1}=\sum^7_{j=1}{1\over j}$$
+
+it is legal to write
+
+$$\sum^6_{k=0}{1\over k+1}=\sum^7_{k=1}{1\over k}$$
+
+\filbreak
+\vskip 1cm
+{\bf Example 14 When the Upper Limit Appears in the Expression to Be Summed}
+
+\vskip 1mm
+(a) Transform the following summation by making the specified change of variable.
+
+$$\hbox{summation: }\sum^{n+1}_{k=1}\Biggl({k\over n+k}\Biggr)\qquad\hbox{change of variable: $j=k-1$}$$
+
+\vskip 1mm
+(b) Transform the summation obtained in part (a) by changing all $j$'s to $k$'s
+
+\vskip 3mm
+{\bf Solution}
+\vskip 1mm
+(a) When $k=1$, then $j=k-1=1-1=0$. (The new lower limit is 0.) When $k=n+1$, then $j=k-1=(n+1)-1=n$. (The new upper limit is $n$)
+\vskip 1mm
+Since $j=k-1$, then $k=j+1$. Also note that $n$ is a constant as far as the terms of the sum are concerned.
+
+$${k\over n+k}={j+1\over n+(j+1)}$$
+
+and so the general term of the new summation is
+
+$$j+1\over n+(j+1)$$
+
+Therefore,
+
+$$\sum^{n+1}_{k=1}{k\over n+k}=\sum^n_{j=0}{j+1\over n+(j+1)}$$
+
+(b) Changing all the $j$'s to $k$'s in the right-hand side of equations gives
+
+$$\sum^{n}_{j=0}{j+1\over n+(j+1)}=\sum^n_{k=0}{k+1\over n+(k+1)}$$
+
+Combining equations and results
+
+$$\sum^{n+1}_{k=1}{k\over n+k}=\sum^n_{k=0}{k+1\over n+(k+1)}$$
+
+\filbreak
+\vskip 1cm
+{\bf Decimal to Binary Conversion Using Repeated Division by $2$}
+
+\vskip 1mm
+The input is a non-negative integer $a$. The aim of the algorithm is to produce a sequence of binary digits $r[0],r[1],r[2],\ldots,r[k]$ so that the binary representation of $a$ is
+
+$$(r[k]r[k-1]\cdots r[2]r[1]r[0])_2$$
+
+That is
+
+$$a=2^k\cdot r[k]+2^{k-1}\cdot r[k-1]+\cdots+2^2\cdot r[2]+2^1\cdot r[1]+2^0\cdot r[0]$$
+
+\vskip 1mm
+{\bf Input:} $a$ [a non-negative integer]
+\vskip 1mm
+{\bf Output:} $r[0],r[1],r[2],\ldots,r[i-1]$---a sequence of integers
+\vskip 1mm
+{\bf Algorithm Body:}
+
+$$\vbox{\+\tt q := a,i := 0\cr
+	\+\tt {\bf while} \cleartabs&\tt (i = 0 or q $\neq$ 0) \cr
+	\+&\tt r[i] := q mod 2\cr
+	\+&\tt q := q div 2\cr
+	\+&\tt i := i + 1\cr
+	\+\tt{\bf end while}\cr
+	\+\cr}$$
+
+where {\tt div} is the Division Algorithm on pg 219.
+
+\vfill\eject
+\bye

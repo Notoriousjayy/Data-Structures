@@ -1,0 +1,278 @@
+{\bf Application: Analysis of Algorithm Efficiency I}
+\vskip 1mm
+\hrule
+
+\vskip 3mm
+{\bf The Sequential Search Algorithm}
+\vskip 1mm
+In a sequential search, $x$ is compared to the first item in the array, then to the second, then to the third, and so on. The search is stopped if a match is found at any stage. On the other hand, if the entire array is processed without finding a match, then $x$ is not in the array.
+
+\filbreak
+\vskip 1cm
+{\bf Example 1: Best- and Worst Case Orders for Sequential Search}
+
+\vskip 1mm
+Find best-and worst-case words for the sequential search algorithmfrom among the set of power functions.
+
+\vskip 3mm
+{\bf Solution}
+
+\vskip 1mm
+Suppose the sequential search algorithm is applied to an input array $a[1], a[2],\ldots,a[n]$ to find an item $x$. In the best case, the algorithm requires only one comparison between $x$ and the items in $a[1],a[2],\ldots,a[n]$. This occurs when $x$ is the first item in the array. Thus in the best case, the sequential search algorithm is $\Theta(1)$. (Note that $\Theta(1)=\Theta(n^0)$.) In the worst case, the algorithm requires $n$ comparisons. This occurs when $x=a[n]$ or when $x$ does not appear in the array at all. Thus in the worst case, the sequential search algorithm is $\Theta(n)$.
+
+\filbreak
+\vskip 1cm
+{\bf The Insertion Sort Algorithm}
+
+\vskip 1mm
+Insertion sort is an algorithm for arranging the items in an array into ascending order. Initially, the second item is compared to the first. If the second item is less than the first, their values are interchanged, and as a result the first two array items are in ascending order. The
+
+$$\overbrace{a[1],a[2],a[3].\ldots,a[k-1]}^{\hbox{sorted subarray}},a[k],a[k+1],\ldots,a[n]$$
+
+Step $k$: Insert the value of $a[k]$ into its proper position relative to $a[1],a[2],\ldots,a[k-1]$. At the end of this step $a[1],a[2],\ldots,a[k]$ is sorted.
+
+\filbreak
+\vskip 1cm
+{\bf Time Efficiency of an Algorithm}
+
+\vskip 1mm
+One factor algorithms can be calculated on is the size of the set of data that is input to the algorithm. Consequently, the execution time of an algorithm is generally expressed as a function of its input size.
+
+\vskip 1mm
+Another factor that may affect the run time of an algorithm is the nature of the input data. A program that searches sequentially through a list of length $n$ to find a data item requires only one step if the item is first on the list, but uses $n$ steps if the item is last on the list. Thus algorithms are  frequently analyzed in terms of their "best-case", "worst-case", and "average-case" performances for an input of size $n$.
+
+\vskip 1mm
+The analysis of an algorithm for time efficiency begins by trying to count the number of elementary operations that must be performed when the algorithm is executed with an input of size $n$ (in the best-case, worst-case, or average-case). What is classified as an "elementary operation" may vary depending on the nature of the problem the algorithm being compared are designed. For instance, to compare two algorithms for evaluating a polynomial, the crucial issue is the number of additions and multiplications that are needed, whereas to compare two algorithms for searching a list to find a particular element, the important distinction is the number of comparisions that are required. These are {\bf elementary operations:} addition, subtraction, multiplication, division, and comparisons that are indicated explicitly in an if-statement using one of the relational symbols $<,\leq,>,\geq,=$, or $\neq$.
+
+\vskip 3mm
+{\bf Definition}
+
+\vskip 1mm
+Let $A$ be an algorithm.
+
+\vskip 3mm
+1. Suppose the number of elementary operations performed when $A$ is executed for an input of size $n$ depends on $n$ alone and not on the nature of the input data; say it equals $f(n)$. If $f(n)$ is $\Theta(g(n))$, we say that $A$ is $\Theta(g(n))$ or $A$ is of order $g(n)$.
+
+\vskip 3mm
+2. Suppose the number of elementary operations performed when $A$ is executed for an input of size $n$ depends on the nature of the input data as well as on $n$.
+
+\vskip 2mm
+\qquad(a) Let $b(n)$ be the $\underline{\hbox{minimum number}}$ of elementary operations required to execute $A$ for all possible input sets of size $n$. If $b(n)$ is $\Theta(g(n))$. We say that in the best case, $A$ is $\Theta(g(n))$ or $A$ has a best-case of $g(n)$.
+
+\vskip 2mm
+\qquad(b) Let $w(n)$ be the $\underline{\hbox{maximum number}}$ of elementary operations required to execute $A$ for all possible input sets of size $n$. If $w(n)$ is $\Theta(g(n))$, we say that in the worst case, $A$ is $\Theta(g(n))$ or $A$ has a worst-case order of $g(n)$.
+
+\filbreak
+\vskip 1cm
+{\bf Example 2: Computing an Order of an Algorithm Segment}
+
+\vskip 1mm
+Assume $n$ is a positive integer and consider the following algorithm segment
+
+$$\vbox{\+\tt p := 0, x := 2 \cr
+	\+\tt for\cleartabs&\tt{} i := 2 to n\cr
+	\+&\tt p := (p + i) $\cdot$ x\cr
+	\+\tt next i\cr
+	\+\tt\cr}$$
+
+a. Compute the actual number of additions and multiplications that must be performed when this algorithm segment is executed.
+
+\vskip 2mm
+b. Use the theorem on polynomial orders to find an order for this algorithm segment.
+
+\vskip 3mm
+{\bf Solution}
+
+\vskip 1mm
+a. There are one multiplication and one addition for each iteration of the loop, so there are as many multiplications and additions as there are iterations of the loop. Now the number of iterations of the {\tt for-next} loop equalsthe top index of the loop minus the bottom index plus $1$; that is, $n-2+1=n-1$. Hence there are $2(n-1)=2n-2$ multiplications and additions.
+
+\vskip 3mm
+b. By the theorem on polynomial orders.
+
+$$2n-2\hbox{ is } \Theta(n)$$
+
+and so this algorithm segment is $\Theta(n)$
+
+\filbreak
+\vskip 1cm
+{\bf Example 3: An Order for an Algorithm with a Nested Loop}
+
+\vskip 1mm
+Assume $n$ is a positive integer and consider the following algorithm segment:
+
+$$\vbox{\+\tt s := 0 \cr
+	\+\tt for\cleartabs&\tt{} i := 1 to n\cr
+	\+&\tt for\cleartabs&\tt{} j := 1 to i\cr
+	\+&&\tt s := s + j $\cdot$ (i - j +1)\cr
+	\+&\tt next j\cr
+	\+\tt next i\cr
+	\+\tt\cr}$$
+
+a. Compute the actual number of additions and multiplications that must be performed when this algorithm segment is executed.
+
+\vskip 2mm
+b. Use the theorem on polynomial orders to find an order for this algorithm segment.
+
+\vskip 3mm
+{\bf Solution}
+
+\vskip 1mm
+a. There are two additions, one multiplication, and one subtraction for each iteration of the inner loop, so the total number of additions, multiplications, and subtractions is four time the number of iterations of the inner loop. Now the inner loop is iterated
+
+$$\eqalign{\hbox{one time when }i&=0\cr
+	\hbox{two times when }i&=2\cr
+	\hbox{three times when }i&=3\cr
+	\vdots\cr
+	\hbox{$n$ times when }i&=n\cr}$$
+
+Hence the total number of iterations of the inner loop is
+
+$$1+2+3+\cdots+n={n(n+1)\over 2}$$
+
+and so the number of additions, subtractions, and multiplications is
+
+$$4\cdot{n(n+1)\over 2}=2n(n+1)$$
+
+\vskip 3mm
+b. By the theorem on polynomial orders, $2n(n+1)=2n^2+2n$ is $\Theta(n^2)$, and so this algorithm segment is $\Theta(n^2)$.
+
+\filbreak
+\vskip 1cm
+{\bf Example 4: When the Number of Iterations Depends on the Floor Function}
+
+\vskip 1mm
+Assume $n$ is a positive integer and consider the following algorithm segment:
+
+$$\vbox{\+\tt for\cleartabs&\tt{} i := $\lfloor$n/2$\rfloor$ to n \cr
+	\+&\tt a := n -  i\cr
+	\+\tt next i\cr
+	\+\tt\cr}$$
+
+a. Compute the actual number of additions and multiplications that must be performed when this algorithm segment is executed.
+
+\vskip 2mm
+b. Use the theorem on polynomial orders to find an order for this algorithm segment.
+
+\vskip 3mm
+{\bf Solution}
+
+\vskip 1mm
+a. There is one subtraction for each iteration of the loop, and the loop is iterated $n-\lfloor{n\over 2}\rfloor+1$. If $n$ is even, then $\lfloor{n\over 2}\rfloor={n\over 2}$, and so the number of subtractions is
+
+$$n-\Bigl\lfloor{n\over 2}\Bigr\rfloor+1=n-{n\over 2}+1={n+2\over 2}$$
+
+If $n$ is odd, then $\lfloor{n\over 2}\rfloor={n-1\over 2}$, and so the number of subtractions is
+
+$$n-\Bigl\lfloor{n\over 2}\Bigr\rfloor+1=n-{n-1\over 2}+1={2n-(n-1)+2\over 2}={n+3\over 2}$$
+
+\vskip 3mm
+b. By the theorem on polynomial orders,
+
+$${n+2\over 2}\hbox{ is }\Theta(n)\quad\hbox{and}\quad {n+3\over 2}\hbox{ is }\Theta(n)$$
+
+also. Hence, regardless of whether $n$ is even or odd, this algorithm segment is $\Theta(n)$
+
+\filbreak
+\vskip 1cm
+{\bf Algorithm: Insertion Sort}
+The aim of this algorithm is to take an array $a[1],a[2],a[3]\ldots,a[n]$, where $n\geq 1$, and reorder it. The output array is also denoted $a[1],a[2],a[3]\ldots,a[n]$. It has the same values as the inut array, but they are in ascending order.  In the $k$th step, $a[1],a[2],a[3]\ldots,a[k-1]$ is in ascending order, and $a[k]$ is inserted into the correct position with respect to it.
+
+\vskip 1mm
+{\bf Input:} $n$ is a positive integer, $a[1],a[2],a[3]\ldots,a[n]$
+
+\vskip 1mm
+{\bf Algorithm Body}
+
+$$\vbox{\+\tt for\cleartabs&\tt{} k := 2 to n \cr
+	\+&\tt x := a[k]\cr
+	\+&\tt j := k - 1\cr
+	\+&\tt while\cleartabs&\tt{} (j $\neq$ 0)\cr
+	\+&&\tt if\cleartabs&\tt{} x $<$ a[j] then\cr
+	\+&&&\tt a[j + 1] := a[j]\cr
+	\+&&&\tt a[j] := x\cr
+	\+&&&\tt j := j - 1\cr
+	\+&&\tt else j := 0\cr
+	\+&&\tt end if\cr
+	\+&\tt end while\cr
+	\+\tt next k\cr
+	\+\tt\cr}$$
+
+{\bf Output:} $a[1],a[2],a[3]\ldots,a[n]$ in ascending order.
+
+\filbreak
+\vskip 1cm
+{\bf Example 7: Finding a Worst-Case Order for Insertion Sort}
+
+\vskip 1mm
+a. What is the maximum number of comparisons that are performed when insertion sort is applied to the array $a[1],a[2],a[3]\ldots,a[n]$?
+
+\vskip 1mm
+b. Use the theorem on polynomial orders to find a worst-case order for insertion sort.
+
+\vskip 3mm
+{\bf Solution}
+
+\vskip 1mm
+a. In each iteration of the {\bf while} loop, two explicit comparisons are made: one to test whether $j\neq 0$ and the other to test whether $a[j]>x$. During the time that $a[k]$ is put into position relative to $a[1],a[2],a[3]\ldots,a[k-1]$, the maximum number of attempted iterations of the {\bf while} loop is $k$. This happens when $a[k]$ is less than every $a[1],a[2],a[3]\ldots,a[k-1]$?; on the $k$th attempted iteration, the condition of the {\bf while} loop is satisfied because $j=0$. Thus the maximum number of comparisons for a given value of $k$ is $2k$. Because $k$ goes from $2$ to $n$, it follows that the maximum total number of comparisons occurs when the items in the array are in reverse order, and it equals
+
+$$\eqalign{(2\cdot 2)+(2\cdot 3)+\cdots+(2\cdot n)&=2(2+3+\cdots+n)\cr
+						&=2\bigl[(1+2+3+\cdots+n)-1\bigr]\cr
+						&=2\Bigl({n(n+1)\over 2}-1\Bigr)\cr
+						&=n(n+1)-2\cr
+						&=n^2+n-2\cr}$$
+
+b. By the theorem on polynomial orders, $n^2+n-2$ is $\Theta(n^2)$, and so the insertion sort algorithm has worst-case order $\Theta(n^2)$.
+
+\filbreak
+\vskip 1cm
+{\bf Example 8: Finding an Average-Case Order for Insertion Sort}
+
+\vskip 1mm
+a. What is the average number of comparisons that are performed when insertion sort is applied to the array $a[1],a[2],a[3]\ldots,a[n]$?
+
+\vskip 2mm
+b. Use the theorem on polynomial orders to find an average-case order for insertion sort.
+
+\vskip 3mm
+{\bf Solution}
+
+\vskip 1mm
+a. Let $E_n$ be the average, or expected, number of comparisons used to sort $a[1],a[2],a[3],\ldots,a[n]$ with insertion sort. Note that for each integer $k=2,3,\ldots, n$.
+
+$$\hbox{[the expected number of comparisons used to sort $a[1],a[2],a[3]\ldots,a[n]$]}=$$
+$$\hbox{the expected number of comparisons used to sort $a[1],a[2],a[3]\ldots,a[n]$}+$$
+$$\hbox{the expected number of comparisons used to place $a[k]$ into positions relative to $a[1],a[2],a[3]\ldots,a[k-1]$}$$
+
+\vskip 1mm
+Thus
+
+$$\eqalign{E_k=E_{k-1}+\cr
+	\hbox{ expected number of comparisons used to place $a[k]$ into positions relative to $a[1],a[2],a[3],\ldots,a[k-1]$}\cr}$$
+
+Also, $E_1=0$ because there is just one item in the array, $n=1$ and no iterations of the outer loop are performed.
+
+\vskip 1mm
+Now at the time $a[k]$ is placed to $a[1],a[2],a[3]\ldots,a[k-1]$, a reasonable assumption is that it is equally likely to belong in any one of the first $k$ positions. Thus the probability of its belonging in any particular position is $1/k$. If it actually belongs in position $j$, then $2(k-j+1)$ comparisons will be used in moving it, because there will be $k-j+1$ attempted iterations of the {\bf while} loop and there are 2 comparisons per attempted iteration.
+
+\vskip 1mm
+
+According to the definition of expected value, the expected number of comparisons used to place $a[k]$ relative to $a[1],a[2],a[3],\ldots,a[k-1]$ is therefore
+
+$$\eqalign{\sum^k_{j=1}{1\over k}\cdot 2(k-j+1)&={2\over k}\bigl[k+(k-1)+\cdots+3+2+1\bigr]\cr
+						&={2\over k}\Bigl({k(k+1)\over 2}\Bigr)\cr
+						&=k+1\cr}$$
+
+Hence
+
+$$\eqalign{E_k&=E_{k-1}+k+1\qquad\hbox{for all integers $k\geq 2$, and}\cr
+			E_1=0\cr}$$
+
+$$E_n={n^2+3n-4\over 2}\qquad\hbox{for each integer $n\geq 1$}$$
+
+\vskip 3mm
+b. By the theorem on polynomial orders, $n={n^2+3n-4\over 2}={1\over 2}n^2+{3\over 2}n-2$ is $\Theta(n^2)$, and so the average-case order of insertion sort is also $\Theta(n^2)$
+
+
+\filbreak
+\vfill\eject
+\bye

@@ -1,0 +1,101 @@
+{\bf Defining Sequences Recursively}
+\vskip 1mm
+\hrule
+
+\vskip 1cm
+Defining sequences recursively requires both an equation, called a {\bf recurrence relation}, that defines each later term in the sequence by reference to earlier terms and also one or more initial values for the sequence. Defining sequences recursively is similar to proving theorems by mathematical induction. The recurrence relation is like the inductive step and the initial conditions are like the basis step.
+
+\filbreak
+\vskip 1cm
+{\bf Example 1: Computing Terms of a Recursively Defined Sequence}
+
+\vskip 1mm
+Define a sequence $c_0,c_1,c_2,\ldots$ recursively as follows: For all integers $k\geq 2$
+
+$$\eqalign{c_k&=c_{k-1}+kc_{k-2}+1\qquad\hbox{\bf recurrence relation (1)}\cr
+	c_0&=1\qquad\hbox{and}\quad c_1=2\qquad\hbox{\bf initial conditions (2)}}$$
+
+For $c_2,c_3$ and $c_4$
+
+\vskip 3mm
+{\bf Solution}
+
+$$\eqalign{c_2&=c_1+2c_0+1\qquad\hbox{\bf by substituting $k=2$ into (1)}\cr
+		&=2+2\cdot 1+1\qquad\hbox{\bf since $c_1=2$ and $c_0=1$ by (2)}\cr
+		\hbox{(3) Thus }c_2&= 5\cr
+		c_3&= c_2+2c_1+1\qquad\hbox{\bf by substituting $k=3$ into (1)}\cr
+		&=5+3\cdot 2+1\qquad\hbox{\bf since $c_2=5$ and $c_1=2$ by (2)}\cr
+		\hbox{(4) Thus }c_3&=12\cr
+		c_4&=c_3+4c_2+1\qquad\hbox{\bf by substituting $k=4$ into (1)}\cr
+		&= 12+4\cdot 5+1\qquad\hbox{\bf since $c_3=12$ by (4) and $c_2=5$ by (3)}\cr
+		\hbox{(5) Thus }c_4&=33\cr}$$
+
+\filbreak
+\vskip 1cm
+{\bf Example 2: Writing a Recurrence Relation in More than One Way}
+
+\vskip 1mm
+Let $s_0,s_1,s_2,\ldots$ be a sequence that satisfies the following recurrence relation:
+
+$$\hbox{for all integers $k\geq 1$,}\qquad s_k=3s_{k-1}-1$$
+
+Explain why the following statement is true
+
+$$\hbox{for all integers $k\geq 0$,}\qquad s_{k+1}=3s_k-1$$
+
+\vskip 3mm
+{\bf Note:} Think of the recurrence relation as $s_\bigcirc=3s_{\bigcirc-1}-1$, where any positive integer expression may be placed in the circle.
+
+\vskip 3mm
+{\bf Solution}
+\vskip 1mm
+In informal language, the recurrence relation says that any form of the sequence equals 3 times the previous term minus 1. Now for any integer $k\geq 0$, the term previous to $s_{k+1}$ is $s_k$. Thus for any integer $k\geq 0,s_{k+1}=3s_{k-1}$
+
+\filbreak
+\vskip 1cm
+{\bf Example 4: Showing That a Sequence Given by an Explicit Formula Satisfies a Certain Recurrence Relation}
+
+\vskip 1mm
+For each integer $n\geq 1$
+
+$$C_n={1\over n+1}{2n\choose n}$$
+
+\vskip 1mm
+a. Find $C_1,C_2$ and $C_3$
+
+\vskip 1mm
+b. Show that this sequence satisfies the recurrence relation $C_k={4k-2\over k+1}C_{k-1}$ for all integers $k\geq 2$
+
+\vskip 3mm
+{\bf Solution}
+
+\vskip 1mm
+a. $$\eqalign{C_1&={1\over 2}{2\choose 1}\cr
+		&={1\over 2}\cdot 2 \cr
+		&= 1\cr
+		{}\cr
+		C_2&={1\over 3}{4\choose 2}\cr
+		&={1\over 3}\cdot 6\cr
+		&= 2\cr
+		{}\cr
+		C_3&={1\over 4}{6\choose 3}\cr
+		&={1\over 4}\cdot 20\cr
+		&=5\cr}$$
+
+b. To obtain the $k$th and $(k-1)$st terms of the sequence, just substitute $k$ and $k-1$ in place of $n$ in the explicit formula for $C_1,C_2,C_3,\ldots$
+
+$$\eqalign{C_k&={1\over k+1}{2k\choose k}\cr
+	C_{k-1}&={1\over (k-1)+1}{2(k-1)\choose k-1}={1\over k}{2k-2\choose k-1}\cr}$$
+
+Then start with the right-hand side of the recurrence relation and transform it into the left-hand side: For each integer $k\geq 2$
+
+$$\eqalign{{4k-2\over k+1}C_{k-1}&={4k-2\over k+1}\Biggl[{1\over k}{2k-2\choose k-1}\Biggr]\qquad\hbox{\bf by substituting}\cr
+				&={2(2k-1)\over k+1}\cdot{1\over k}\cdot{(2k-2)!\over (k-1)!(2k-2-(k-1))!}\qquad\hbox{\bf by the formula for $n$ choose $r$}\cr
+				&={1\over k+1}\cdot(2(2k-1))\cdot{(2k-2)!\over(k(k-1)!)(k-1)!}\qquad\hbox{\bf by rearranging the factors}\cr
+				&={1\over k+1}\cdot(2(2k-1))\cdot{1\over k!(k-1)!\cdot(2k-2)!\cdot{1\over 2}\cdot{1\over k}\cdot 2k}\qquad\hbox{\bf because ${1\over}\cdot{1\over k}\cdot 2k=1$}\cr
+				&={1\over k+1}\cdot{2\over 2}\cdot{1\over k!}\cdot{1\over (k-1)!}\cdot{1\over k}\cdot(2k)\cdot(2k-1)\cdot(2k-2)!\qquad\hbox{\bf by rearranging the factors}\cr
+				&={1\over k+1}\cdot{(2k)!\over k!k!}\qquad\hbox{\bf because $k(k-1)!=k!$ and $2k\cdot(2k-2)!=(2k)!$}\cr
+				&={1\over k+1}{2k\choose k}\qquad\hbox{\bf by the formula for $n$ choose $r$}\cr
+				&=C_k\qquad\hbox{\bf by definition of $C_1,C_2,C_3\ldots$}\cr}$$
+\vfill\eject
+\bye

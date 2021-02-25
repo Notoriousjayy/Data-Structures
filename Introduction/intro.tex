@@ -1,0 +1,302 @@
+{\bf Introduction}
+\vskip 1mm
+\hrule
+
+\vskip 1mm
+{\bf What is an Algorithm?}
+
+\vskip 1mm
+An {\bf algorithm} is a sequence of unambiguous instructions for solving a problem, i.e., for obtaining a required output for any legitimate input in a finite amount of time.
+
+\vskip 1mm
+The Greatest Common Divisor (GCD) of two non-negative, not-both-zero integers $m$ and $n$ denoted $gcd(m, n)$, is defined as the largest integer that divides both $m$ and $n$ evenly, i.e., with a remainder of zero.
+
+\vskip 3mm
+{\bf Euclid's algorithm} is based on applying repeatedly the equality
+
+$$\hbox{\tt gcd($m$, $n$) = gcd($n$, $m$ mod $n$)}$$
+
+where $m$ {\tt mod} $n$ is the remainder of the division of $m$ by $n$, until $m$ {\tt mod} $n$ is equal to 0.
+
+\vskip 3mm
+{\bf Euclid's algorithm} for computing {\tt gcd($m$, $n$)}
+
+\vskip 1mm
+{\bf Step 1.}\quad If $n=0$, return the value of $m$ as the answer and stop; otherwise proceed to Step 2.
+
+\vskip 1mm
+{\bf Step 2.} Divide $m$ by $n$ and assign the value of the remainder to $r$.
+
+\vskip 1mm
+{\bf Step 3.} Assign the value of $n$ to $m$ and the value of $r$ to $n$. Go to Step 1
+
+\vskip 1cm
+$$\hbox{\tt\bf Euclid($m$, $n$)}$$
+$$\vbox{\settabs 1 \columns
+\+{\bf // Computes {\tt gcd(m, n)} by Euclid's algorithm}\cr
+\+{\bf // Input: Two non-negative, not-both-zero integers $m$ and $n$}\cr
+\+{\bf // Output: Greatest Common Divisor of $m$ and $n$}\cr}$$
+$$\vbox{\+\tt {\bf while} \cleartabs&{}\tt n $\neq$ 0 {\bf do} \cr
+	\+&\tt $r\gets m\hbox{\tt{} mod } n$\cr
+	\+&\tt $m\gets n$\cr
+	\+&\tt $n\gets r$\cr
+	\+\tt {\bf return} $m$\cr}$$
+
+\vskip 1cm
+Here is an implementation in C/C++
+$$\hbox{\tt\bf int Euclid(int $m$, int $n$) $\{$}$$
+$$\vbox{\settabs 1 \columns
+\+{\bf // Computes {\tt gcd(m, n)} by Euclid's algorithm}\cr
+\+{\bf // Input: Two non-negative, not-both-zero integers $m$ and $n$}\cr
+\+{\bf // Output: Greatest Common Divisor of $m$ and $n$}\cr}$$
+$$\vbox{\+\tt {\bf while} \cleartabs&{}\tt (n $\neq$ 0) $\{$\cr
+	\+&\tt int r = m $\%$ n;\cr
+	\+&\tt m = n;\cr
+	\+&\tt n = r;\cr
+	\+\tt$\}$\cr
+	\+\tt {\bf return} m;\cr}$$
+$$\hbox{\tt$\}$\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}$$
+
+\filbreak
+\vskip 1cm
+Here is an implementation in Java
+$$\hbox{\tt\bf static int Euclid(int $m$, int $n$) $\{$}$$
+$$\vbox{\settabs 1 \columns
+\+{\bf // Computes {\tt gcd(m, n)} by Euclid's algorithm}\cr
+\+{\bf // Input: Two non-negative, not-both-zero integers $m$ and $n$}\cr
+\+{\bf // Output: Greatest Common Divisor of $m$ and $n$}\cr}$$
+$$\vbox{\+\tt {\bf while} \cleartabs&{}\tt (n $\neq$ 0) $\{$\cr
+	\+&\tt int r = m $\%$ n;\cr
+	\+&\tt m = n;\cr
+	\+&\tt n = r;\cr
+	\+\tt$\}$\cr
+	\+\tt {\bf return} m;\cr}$$
+$$\hbox{\tt$\}$\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}$$
+
+\filbreak
+\vskip 1cm
+Here is an implementation in Javascript
+$$\hbox{\tt\bf function Euclid(int $m$, int $n$) $\{$}$$
+$$\vbox{\settabs 1 \columns
+\+{\bf // Computes {\tt gcd(m, n)} by Euclid's algorithm}\cr
+\+{\bf // Input: Two non-negative, not-both-zero integers $m$ and $n$}\cr
+\+{\bf // Output: Greatest Common Divisor of $m$ and $n$}\cr}$$
+$$\vbox{\+\tt {\bf while} \cleartabs&{}\tt (n $\neq$ 0) $\{$\cr
+	\+&\tt int r = m $\%$ n;\cr
+	\+&\tt m = n;\cr
+	\+&\tt n = r;\cr
+	\+\tt$\}$\cr
+	\+\tt {\bf return} m;\cr}$$
+$$\hbox{\tt$\}$\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}$$
+
+\filbreak
+\vskip 1cm
+Here is an implementation in Python3
+$$\hbox{\tt\bf def Euclid($m$, $n$):}$$
+$$\vbox{\settabs 1 \columns
+\+{\bf // Computes {\tt gcd(m, n)} by Euclid's algorithm}\cr
+\+{\bf // Input: Two non-negative, not-both-zero integers $m$ and $n$}\cr
+\+{\bf // Output: Greatest Common Divisor of $m$ and $n$}\cr}$$
+$$\vbox{\+\tt {\bf while} \cleartabs&{}\tt (n $\neq$ 0):\cr
+	\+&\tt r = m $\%$ n\cr
+	\+&\tt m = n\cr
+	\+&\tt n = r\cr
+	\+\tt {\bf return} m;\cr}$$
+
+\filbreak
+\vskip 1cm
+$$\hbox{\tt\bf Sieve($n$)}$$
+$$\vbox{\settabs 1 \columns
+\+{\bf // Implements the sieve of Eratosthenes}\cr
+\+{\bf // Input: A positive integer $n>1$}\cr
+\+{\bf // Output: Array $L$ of all prime numbers less than or equal to $n$}\cr}$$
+$$\vbox{\+\tt {\bf for} $p\gets 2${\bf{} to} $n$ {\bf do} $A[p]\gets p$ \cr
+	\+\tt {\bf for} $p$\cleartabs&$\gets 2$ {\bf{} to} $\lfloor\sqrt{n}\rfloor$ {\bf do}\cr
+	\+&\tt // $p$ hasn't been eliminated on previous passes \cr
+	\+&\tt {\bf if} $A$\cleartabs&$[p]$ $\neq 0$\cr
+	\+&&\tt $j\gets p * p$\cr
+	\+&&\tt {\bf while }\cleartabs&$j \leq n$ {\bf do}\cr
+	\+&&&\tt // mark element as eliminated\cr
+	\+&&&\tt $A[j]\gets 0$\cr
+	\+&&&\tt $j\gets j + p$\cr
+	\+\tt // copy the remaining elements of $A$ to $L$ of the primes\cr
+	\+\tt $i\gets 0$\cr
+	\+\tt {\bf for} $p\gets 2$ {\bf to} $n$ {\bf do}\cr
+	\+&\tt {\bf if} $A[p] \neq 0$\cr
+	\+&&\tt $L[i]\gets A[p]$\cr
+	\+&&\tt $i\gets i + 1$\cr
+	\+\tt {\bf return} $L$\cr}$$
+
+\filbreak
+\vskip 1cm
+{\bf Important Problem Types}
+\vskip 1mm
+\hrule
+
+\vskip 3mm
+$\bullet$ Sorting
+
+\vskip 3mm
+$\bullet$ Searching
+
+\vskip 3mm
+$\bullet$ String Processing
+
+\vskip 3mm
+$\bullet$ Combinatorial Problems
+
+\vskip 3mm
+$\bullet$ Geometric Problems
+
+\vskip  3mm
+$\bullet$ Numerical Problems
+
+\vskip 1cm
+The {\bf Sorting Problem} is to rearrange the items of a given list in non-decreasing order. A sorting algorithm is called {\bf stable} if it preserves the relative order of any two equal elements in its input. If an input list contains two equal elements in positions $i$ and $j$ where $i<j$, then in the sorted list they have to be in the position $i'$ and $j'$, respectively, such that $i'<j'$.
+
+\vskip 1mm
+The second notable feature of a sorting algorithm is said to be {\bf in-place} if it does not require extra memory.
+
+\filbreak
+\vskip 1cm
+The {\bf Searching Problem} deals with finding a given value, called a {\bf search key}, in a given set (or a multiset, which allows several elements to have the same value).
+\vskip 1mm
+Searches have to be considered in conjunction with two other operations: an addition to and deletion from the data set of an item.
+
+\filbreak
+\vskip 1cm
+{\bf String Matching Problem}---Searching for a given word in a text.
+
+\filbreak
+\vskip 1cm
+{\bf Graph Problems}---Using the properties of graphs to solve problems such as the Shortest-Path Problem, or finding a minimum spanning tree.
+
+\filbreak
+\vskip 1cm
+{\bf Combinatorial Problems}---Problems that ask, explicitly or implicitly, to find a combinatorial object.
+
+\filbreak
+\vskip 1cm
+{\bf Geometric Problems:} Geometric algorithms deal with geometric objects such as points, lines, and polygons. Two famous problems in this group are the {\bf closest-pair problem} and {\bf convex-hull problem}.
+
+\filbreak
+\vskip 1cm
+{\bf Numerical Problems:} Numerical problems are problems that involve mathematical objects of continuous nature: solving equations and systems of equations, computing definite integrals, evaluating functions, and so on.
+
+\filbreak
+\vskip 1cm
+{\bf Fundamental Data Structures}
+\vskip 1mm
+\hrule
+
+\vskip 3mm
+{\bf Linear Data Structures}
+
+\vskip 1mm
+The two most important elementary data structures are:
+
+\vskip 1mm
+\quad$\bullet$ Array
+\vskip 1mm
+\quad$\bullet$ Linked List
+
+\vskip 3mm
+An {\bf array} is a sequence of $n$ items of the same data type that are stored contiguously in computer memory and made accessible by specifying a value of the array's {\bf index}. Each and every element of a array can be accessed in the same constant amount of time regardless of where in the array the element in question is located.
+
+\vskip 3mm
+A {\bf linked list} is a sequence of zero or more elements called {\bf nodes}, each containing two kinds of information: some data and ore or more linkes called {\bf pointers} to other nodes of the linked list.
+
+\vskip 1cm
+{\bf Graphs}
+
+\vskip 1mm
+Graphs for computer algorithms are usually represented in one of two ways
+
+\vskip 1mm
+\quad$\bullet$ adjacency matrix
+\vskip 1mm
+\quad$\bullet$ adjacency lists
+
+\vskip 3mm
+The {\bf adjacency matrix} of a graph with $n$ vertices is an $n\times n$ boolean matrix with one row and one column for each of the graph's vertices, in which the element in the $i$th row and $j$th column is equal to 1 if there is an edge from the $i$th vertex to the $j$th vertex, and equal to 0 if there is no edge from the $i$th vertex to the $j$th vertex.
+
+\vskip 3mm
+The {\bf adjacency lists} of a graph or a digraph is a collection of linked lists, one for each vertex, that contain all the vertices adjacent to the list's vertex.
+
+\vskip 1cm
+{\bf Trees}
+
+\vskip 1mm
+A tree is a connected acyclic graph.
+
+\vskip 3mm
+{\bf Rooted Trees} A very important property of trees is the fact that for every two vertices in a tree, there always exists one simple  path from one of these vertices to the other. This property makes it possible to select an arbitrary vertex in a tree and consider it as the {\bf root} of the so-called {\bf rooted tree}.
+
+\vskip 3mm
+{\bf Ordered Trees}---An ordered tree is a rooted tree in which all the children of each vertex are ordered. A {\bf Binary Tree} can be defined as an ordered tree in which every vertex has no more than two children and each child is designated as either {\bf left child} or a {\bf right child} of its parent; a binary tree may also be empty. Note that a number assigned to each parental vertex is larger than all the numbers in its left subtree and smaller than all the number in its right subtree. Such trees are called {\bf binary search trees}
+
+\vskip 1cm
+{\bf Sets and Dictionaries}
+
+\vskip 1mm
+A {\bf set} can be described as an unordered collection (possibly empty) of distinct items called {\bf elements} of the set.
+\vskip 1mm
+A {\bf dictionary} allows the following operations on sets or multisets:
+
+\vskip 1mm
+\quad$\bullet$ Searching for a given item in the collection
+\vskip 1mm
+\quad$\bullet$ Adding a new item to the collection
+\vskip 1mm
+\quad$\bullet$ Deleting an item from the collection
+
+\filbreak
+\vskip 1cm
+{\bf Summary}
+
+\vskip 3mm
+$\bullet$ An algorithm is a sequence of non-ambiguous instructions for solving a problem in a finite amount of time. An input to an algorithm specifies an instance of the problem the algorithm solves.
+
+\vskip 3mm
+$\bullet$ Algorithms can be specified in a natural language or pseudocode; they can also be implemented as computer programs.
+
+\vskip 3mm
+$\bullet$ Among several ways to classify algorithms, the two principal alternatives are:
+
+\vskip 1mm
+\qquad\qquad$\bullet$ to group algorithms to types of problems they solve
+
+\vskip 1mm
+\qquad\qquad$\bullet$ to group algorithms according to underlying design techniques they are based on
+
+\vskip 3mm
+$\bullet$ The important problem types are sorting, searching, string processing, graph problems, combinatorial problems, geometric problems, and numerical problems.
+
+\vskip 3mm
+$\bullet$ Algorithm design techniques are general approaches to solving problems algorithmically, applicable to a variety of problems from different areas of computing.
+
+\vskip 3mm
+$\bullet$ Although designing an algorithm is undoubtedly a creative activity, one can identify a sequence of interrelated actions involved in such a process.
+
+\vskip 3mm
+$\bullet$ A good algorithm is usually the result of repeated efforts and rework.
+
+\vskip 3mm
+$\bullet$ The same problem can often be solved by several algorithms.
+
+\vskip 3mm
+$\bullet$ Algorithms operate on data. This makes the issue of data structing critical for efficient algorithmic problem solving. The most important elementary data structures are the array and the linked list. They are used for representing more abstract data structures such as the {\bf list}, the {\bf stack}, the {\bf queue}, the {\bf graph}, the {\bf binary tree}, and the {\bf set}.
+
+\vskip 3mm
+$\bullet$ An abstract collection of objects with several operations that can be performed on them is called an {\bf Abstract Data Type (ADT)}. The {\bf list}, the {\bf stack}, the {\bf queue}, the {\bf priority queue}, and the {\bf dictionary} are important examples of abstract data types. Modern object-oriented languages support implementation of ADT's by means of classes.
+
+
+
+
+%$$\vbox{\+\bf \cleartabs& \cr
+%	\+\cr
+%	\+\cr
+%	\+\cr}$$
+
+\vfill\eject
+\bye

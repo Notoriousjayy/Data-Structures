@@ -1,0 +1,152 @@
+{\bf Asymptotic Notations and Basic Efficiency Classes}
+\vskip 1mm
+\hrule
+
+\vskip 1cm
+The efficiency analysis framework concentrates on the order of growth of an algorithm's basic count as the principal indicator of the algorithm's efficiency. $t(n)$ and $g(n)$ can be any non-negative functions defined on the set of natural numbers. $t(n)$ will be an algorithm's running time (usually indicated by its basic operation count $C(n)$) and $g(n)$ will be some simple function to compare the count with.
+
+\vskip 1cm
+{\bf $O$-notation}
+
+\vskip 1mm
+A function $t(n)$ is said to be $O\bigl(g(n)\bigr)$, denoted $t(n)\in O\bigl(g(n)\bigr)$, if $t(n)$ is bounded above by some constant multiple of $g(n)$ for all large $n$, i.e. if there exist some positive constant $c$ and some non-negative integer $n_0$ such that
+
+$$t(n)\leq cg(n)\qquad\hbox{for all $n\geq n_0$}$$
+
+example $100n+5\in O(n^2)$
+
+$$100n+5\leq 100n+n\hbox{ (for all $n\geq 5$) }=101n\leq 101n^2$$
+
+As the values of the constants $c$ and $n_0$ require by the definition.
+
+s
+\vskip 1cm
+{\bf $\Omega$-notation}
+
+\vskip 1mm
+A function $t(n)$ is said to be in $\Omega\bigl(g(n)\bigr)$, denoted $t(n)\in\Omega\bigl(g(n)\bigr)$, if $t(n)$ is bounded below some positive constant multiple of $g(n)$ for all large $n$, i.e., if there exist some positive constant $c$ and some negative integer $n_0$ such that
+
+$$t(n)\geq cg(n)\qquad\hbox{for all $n\geq n_0$}$$
+
+example $n^3\in\Omega(n^2)$
+
+$$n^3\geq n^2\qquad\hbox{for all $n\geq 0$}$$
+
+we can select $c=1$ and $n_0=0$
+
+\vskip 1cm
+{\bf $\Theta$-notation}
+
+\vskip 1mm
+A function $t(n)$ is said to be in $\Theta\bigl(g(n)\bigr)$, denoted $t(n)\in\Theta\bigl(g(n)\bigr)$, if $t(n)$ is bounded both above and below by some positive constant multiples of $g(n)$ for all large $n$,  i.e. if there exists some positive constants $c_1$ and $c_2$ and some non-negative integer $n_0$ such that
+
+$$c_2g(n)\leq t(n)\leq c_1g(n)\qquad\hbox{for all $n\geq n_0$}$$
+
+example ${1\over 2}n(n-1)\in\Theta(n^2)$
+
+\vskip 1mm
+First we prove theright inequality (the upper bound)
+
+$${1\over 2}n(n-1)={1\over 2}n^2-{1\over 2}n\leq{1\over 2}n^2\qquad\hbox{for all $n\geq 0$}$$
+
+Second, we prove the left inequality (the lower bound):
+
+$${1\over 2}n(n-1)={1\over 2}n^2-{1\over 2}n\geq{1\over 2}n^2-{1\over 2}n{1\over 2}n\qquad\hbox{for all $n\geq 2$}={1\over 4}n^2$$
+
+We can select $c_2={1\over 4}$, $c_1={1\over 2}$ and $n_0=2$
+
+\filbreak
+\vskip 1cm
+{\bf Useful Property involving}
+
+\vskip 3mm
+{\bf Theorem}
+
+\vskip 1mm
+If $t_1(n)\in O\bigl(g_1(n)\bigr)$ and $t_2(n)\in O\bigl(g_2(n)\bigr)$, then $t_1(n)+t_2(n)\in O\bigl($\hbox{max$\{ g_1(n),g_2(n) \}$ }$\bigr)$
+
+\vskip 3mm
+{\bf Proof}
+
+\vskip 1mm
+The proof extends to orders of growth the simple fact about four arbitrary real numbers $a_1,b_1,a_2,b_2$: if $a_1\leq b_1$ and $a_2\leq b_2$, then $a_1+a_2\leq 2\hbox{max$\{b_1,b_2\}$}$
+
+\vskip 1mm
+Since $t_1(n)\in O\bigl(g_1(n)\bigr)$, there exists some positive constant $c_1$ and some non-negative integer $n_1$ such that
+
+$$t_1(n)\leq c_1g_1(n)\qquad\hbox{for all $n\geq n_1$}$$
+
+Similarily, since $t_2(n)\in O\bigl(g_2(n)\bigr)$
+
+$$t_2(n)\leq c_2g_2(n)\qquad\hbox{for all $n\geq n_2$}$$
+
+Let us denote $c_3=\hbox{max$\{c_1,c_2\}$}$, and consider $n\geq\hbox{max$\{n_1,n_2\}$}$ so that we can use both inequalities. Adding them yiedls the following:
+
+$$\eqalign{t_1(n)+t_2(n)&\leq c_1g_1(n)+c_2g_2(n)\cr
+			&\leq c_3g_1(n)+c_3g_2(n)=c_3\Bigl[g_1(n)+g_2(n)\Bigr]\cr
+			&\leq c_32\hbox{max$\{g_1(n),g_2(n)\}$}\cr}$$
+
+Hence, $t_1(n)+t_2(n)\in O\bigl($\hbox{max$\{ g_1(n),g_2(n)\}$}$\bigr)$, with the constants $c$ and $n_0$ required by the $O$ definition being $2c_3=2\hbox{max$\{c_1,c_2\}$}$ and max$\{n_1,n_2\}$, respectively.
+
+\vskip 1mm
+What does this property imply for an algorithm that comprises two consecutively executed parts? It implies that the algorithm's overall efficiency is determined by the part with higher order of growth, i.e. its least efficient part.
+
+\filbreak
+\vskip 1cm
+{\bf Using Limits for Comparing Orders of Growth}
+
+\vskip 1mm
+A convenient method for computing orders of growth is based on computing the limit of the ratio of two functions. Three principal cases may arise
+
+$$\lim_{n\to\infty}{t(n)\over g(n)}=\cases{0, &implies that $t(n)$ has a smaller order of growth than $g(n)$\cr
+						c, &implies that $t(n)$ has the same order of growth as $g(n)$\cr
+						\infty, &implies that $t(n)$ has a larger order of growth than $g(n)$ \cr}$$
+
+\filbreak
+\vskip 1cm
+{\bf Example 1}
+\vskip 1mm
+Compare the orders of growth of ${1\over 2}n(n-1)$ and $n^2$.
+
+$$\eqalign{\lim_{n\to\infty}{{1\over2}n(n-1)\over n^2}&={1\over 2}\lim_{n\to\infty}{n^2-n\over n^2}\cr
+						&={1\over 2}\lim_{n\to\infty}(1-{1\over n})\cr
+						&={1\over 2}\cr}$$
+
+since the limit is equal to a positive constant, the functions have the same order of growth or symbolically, ${1\over 2}n(n-1)\in\Theta(n^2)$
+
+\filbreak
+\vskip 1cm
+{\bf Example 2}
+\vskip 1mm
+Compate the orders of growth of $\log_2n$ and $\sqrt{n}$
+
+$$\eqalign{\lim_{n\to\infty}{\log_2n\over\sqrt{n}}&=\lim_{n\to\infty}{(\log_2n)'\over(\sqrt{n})'}\cr
+						&=\lim_{n\to\infty}{(\log_2e){1\over n}\over{1\over 2\sqrt{n}}}\cr
+						&=2\log_2e\lim_{n\to\infty}{1\over\sqrt{n}}\cr
+						&=0\cr}$$
+
+Since the limit is equal to zero, $\log_2n$has a smaller order of growth than $\sqrt{n}$
+
+\filbreak
+\vskip 1cm
+{\bf Example 3}
+\vskip 1mm
+Compare the orders of growth of $n!$ and $2^n$.
+
+$$\eqalign{\lim_{n\to\infty}{n!\over 2^n}&=\lim_{n\to\infty}{\sqrt{2\pi n}({n\over e})^n\over 2^n}\cr
+					&=\lim_{n\to\infty}\sqrt{2\pi n}{n^n\over 2^ne^n}\cr
+					&=\lim_{n\to\infty}\sqrt{2\pi n}\Bigl({n\over 2e}\Bigr)^n\cr
+					&=\infty\cr}$$
+
+though $2^n$ grow very fast, $n!$ grows faster. We can wrtie symbolically that $n!\in\Omega(2^n)$; note, however that while the big-Omega notation does not preclude the possibility that $n!$ and $2^n$ have the same order of growth.
+
+
+
+
+%$$\vbox{\+\bf \cleartabs& \cr
+%	\+\cr
+%	\+\cr
+%	\+\cr}$$
+
+\vfill\eject
+\bye

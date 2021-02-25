@@ -1,0 +1,102 @@
+{\bf Theorem: Properties of $O$-, $\Omega$-, and $\Theta$- Notations}
+\vskip 1mm
+\hrule
+
+\vskip 3mm
+Let $f$ and $g$ be real-valued functions defined on the same set of nonnegative real numbers.
+
+\vskip 1mm
+1. $f(x)$ is $\Omega(g(x))$ and $f(x)$ is $O(g(x))$ if, and only if $f(x)$ is $\Theta(g(x))$.
+
+\vskip 3mm
+2. $f(x)$ is $\Omega(g(x))$ if, and only if, $g(x)$ is $O(f(x))$.
+
+\vskip 3mm
+3. If $f(x)$ is $O(g(x))$ and $g(x)$ is $O(h(x))$, then $f(x)$ is $O(h(x))$.
+
+\vskip 3mm
+{\bf Proof}
+
+\vskip 1mm
+1. We first show that if $f(x)$ is $\Omega(g(x))$, then $g(x)$ is $O(f(x))$. Thus, suppose $f(x)$ is $\Omega(g(x))$. By definition of $\Omega$-notation, there exist a positive real number $A$ and a nonnegative real number $a$ such that
+
+$$A|g(x)|\leq|f(x)|\qquad\hbox{for all real numbers $x>a$}$$
+
+Divide both sides by $A$ to obtain
+
+$$|g(x)|\leq{1\over A}|f(x)|\qquad\hbox{for all real numbers $x>a$}$$
+
+Let $B=1/A$ and $b=a$. Then $B$ is a positive real number and $b$ is a nonnegative real number, and
+
+$$|g(x)|\leq B|f(x)|\qquad\hbox{for all real numbers $x>b$}$$
+
+and so $g(x)$ is $O(f(x))$.
+
+\vskip 3mm
+3. Suppose $f(x)$ is $O(f(x))$ and $g(x)$ is $O(h(x))$. By definition of $O$-notation, there exist positive real numbers $B_1$ and $B_2$, and nonnegative real numbers $b_1$ and $b_2$ such that
+
+$$|f(x)|\leq B_1|g(x)|\qquad\hbox{for all real numbers $x>b_1$}$$
+
+and
+
+$$|g(x)|\leq B_2|h(x)|\qquad\hbox{for all real numbers $x>b_2$}$$
+
+Let $B=B_1B_2$, and let $b$ be the greater of $b_1$ and $b_2$. Then if $x>b$,
+
+$$|f(x)|\leq B_1|g(x)|\leq B_1(B_2|h(x)|)\leq B|h(x)|$$
+
+Thus, by definition of $O$-notation, $f(x)$ is $O(h(x))$.
+
+\filbreak
+\vskip 1cm
+{\bf Theorem: On Polynomial Orders}
+\vskip 1mm
+\hrule
+
+\vskip 3mm
+Suppose $a_0,a_1,a_2,\ldots,a_n$ are real numbers and $a_n\neq 0$.
+
+\vskip 1mm
+1. $a_nx^n+a_{n-1}x^{n-1}+\cdots+a_1x+a_0$ is $O(x^s)\quad$ for all integers $s\geq n$.
+
+\vskip 3mm
+2. $a_nx^n+a_{n-1}x^{n-1}+\cdots+a_1x+a_0$ is $\Omega(x^r)\quad$ for all integers $r\leq n$.
+
+\vskip 3mm
+3. $a_nx^n+a_{n-1}x^{n-1}+\cdots+a_1x+a_0$ is $\Theta(x^n)$
+
+\filbreak
+\vskip 1cm
+{\bf Theorem: Limitation on Orders of Polynomial Functions}
+\vskip 1mm
+\hrule
+
+\vskip 1mm
+Let $n$ be a positive integer, and let $a_0,a_1,a_2,\ldots,a_n$ be real numbers with $a_n\neq 0$. If $m$ is any integer with $m<n$, then
+
+$$a_nx^n+a_{n-1}x^{n-1}+\cdots+a_1x+a_0\hbox{ is not } O(x^m)$$
+
+and
+
+$$a_nx^n+a_{n-1}x^{n-1}+\cdots+a_1x+a_0\hbox{ is not } \Theta(x^m)$$
+
+\filbreak
+\vskip 1cm
+{\bf Theorem: Orders of Functions Composed of Rational Power Functions}
+\vskip 1mm
+\hrule
+
+\vskip 1mm
+Let $m$ and $n$ be positive integers, and let $r_0,r_1,r_2,\ldots r_n$ and $s_0,s_1,s_2,\ldots,s_m$ be nonnegative rational numbers with $r_0<r_1<r_2<\cdots<r_n$ and $s_0<s_1<s_2<\cdots<s_m$. Let $a_0, a_1,a_2,\ldots,a_n$ and $b_0,b_1,b_2,\ldots,b_m$ be real numbers with $a_n\neq 0$ and $b_m\neq 0$. Then
+
+$${a_nx^{r_n}+a_{n-1}+\cdots+a_1x^{r_1}+a_0x^{r_0}\over b_mx^{s_m}+b_{m-1}x^{s_1}+b_0x^{s_0}}\hbox{ is } \Theta(x^{r_n-s_m})$$
+
+$${a_nx^{r_n}+a_{n-1}+\cdots+a_1x^{r_1}+a_0x^{r_0}\over b_mx^{s_m}+b_{m-1}x^{s_1}+b_0x^{s_0}}\hbox{ is } O(x^c)\qquad\hbox{for all real numbers $c>r_n-s_m$}$$
+
+$${a_nx^{r_n}+a_{n-1}+\cdots+a_1x^{r_1}+a_0x^{r_0}\over b_mx^{s_m}+b_{m-1}x^{s_1}+b_0x^{s_0}}\hbox{ is not } O(x^c)\qquad\hbox{for any real numbers $c<r_n-s_m$}$$
+
+
+
+\filbreak
+\vfill\eject
+\bye

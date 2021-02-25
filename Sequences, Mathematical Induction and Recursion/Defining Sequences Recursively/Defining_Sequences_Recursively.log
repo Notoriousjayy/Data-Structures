@@ -1,0 +1,27 @@
+This is TeX, Version 3.14159265 (TeX Live 2019/dev/Debian) (preloaded format=tex 2019.8.14)  6 OCT 2020 16:19
+**Defining_Sequences_Recursively
+(./Defining_Sequences_Recursively.tex [1]
+Underfull \vbox (badness 10000) has occurred while \output is active
+\vbox(643.20255+1.94444)x469.75499, glue set 5.58105
+.\glue(\topskip) 3.05556
+.\hbox(6.94444+1.94444)x469.75499, glue set 0.37
+..\hbox(0.0+0.0)x20.0
+..\tenbf E
+..\tenbf x
+..\tenbf a
+..\tenbf m
+..etc.
+.\penalty 300
+.\glue(\baselineskip) 3.11111
+.\hbox(6.94444+0.0)x469.75499, glue set 366.52634fil
+..\tenbf R
+..\tenbf e
+..\tenbf c
+..\tenbf u
+..\tenbf r
+..etc.
+.etc.
+
+ [2]
+[3] )
+Output written on Defining_Sequences_Recursively.dvi (3 pages, 8132 bytes).

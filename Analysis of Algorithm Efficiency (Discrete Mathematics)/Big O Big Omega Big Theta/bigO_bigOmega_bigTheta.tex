@@ -1,0 +1,415 @@
+{\bf $O$-, $\Omega$-, and $\Theta$- Notations}
+\vskip 1mm
+\hrule
+
+\vskip 1cm
+Suppose $f$ and $g$ are real-valued functions of a variable $x$.
+
+\vskip 3mm
+1. If, for sufficiently large values of $x$, the values of $|f|$ are less than those of a multiple of $|g|$, then $f$ is of ordee at most $g$, or $f(x)$ is $O(g(x))$.
+
+\vskip 3mm
+2. If, for sufficiently large values of $x$, the values of $|f|$ are greater than those of a multiple of $|g|$, then $f$ is of order at least $g$, or $f(x)$ is $\Omega(g(x))$.
+
+\vskip 3mm
+3. If, for sufficiently large values of $x$, the values of $|f|$ are bounded above and below by those of multiples of $|g|$, then $f$ is of order $g$, or $f(x)$ is $\Theta(g(x))$.
+
+\vskip 3mm
+{\bf Definition}
+
+\vskip 1mm
+Let $f$ and $g$ be real-valued functions defined on the same set of nonnegative real numbers. Then
+
+\vskip 3mm
+1. {\bf $f$ is of order at least $g$}, written {\bf $f(x)$ is $\Omega(g(x))$}, if and only if, if there exist a positive real number $A$ and a nonnegative real number $a$ such that
+
+$$A|g(x)|\leq |f(x)|\qquad\hbox{for all real numbers $x>a$}$$
+
+\vskip 3mm
+2. {\bf $f$ is of order at most $g$}, written {\bf $f(x)$ is $O(g(x))$}, if and only if, there exists a positive real number $B$ and a nonnegative real number $b$ such that
+
+$$|f(x)|\leq B|g(x)|\qquad\hbox{for all real numbers $x>b$}$$
+
+\vskip 3mm
+3. {\bf $f$ is of order $g$}, written {\bf $f(x)$ is $\Theta(g(x))$}, if and only if, there exists a positive real number $A,B$, and a non-negative real number $k$ such that
+
+$$A|g(x)|\leq|f(x)|\leq B|g(x)|\qquad\hbox{for all real numbers $x>k$}$$
+
+\filbreak
+\vskip 1cm
+{\bf Example 1: Translating to $\Theta$-Notation}
+
+\vskip 1mm
+Use $\Theta$-Notation
+
+$$10|x^6|\leq |17x^6-45x^3+2x+8|\leq 30|x^6|\qquad\hbox{for all real numbers $x>2$}$$
+
+\vskip 3mm
+{\bf Solution}
+
+\vskip 1mm
+Let $A=10,B=30$, and $k=2$. Then the statement translates to
+
+$$A|x^6|\leq|17x^6-45x^3+2x|\leq B|x^6|\qquad\hbox{for all real numbers $x>k$}$$
+
+so by definition of $\Theta$-notation
+
+$$17x^6-45x^3+2x+8\hbox{ is }\Theta(x^6)$$
+
+\filbreak
+\vskip 1cm
+{\bf Example 2: Translating to $O$- and $\Omega$- Notations}
+
+\vskip 1mm
+a. Use $\Omega$ and $O$ notations to express the statements
+
+$$\hbox{\rm (i) }\quad 15\bigl|\sqrt{x}\bigr|\leq\Biggl|{14\sqrt{x}(2x+9)\over x+1}\Biggr|\qquad\hbox{for all real numbers $x>0$}$$
+
+$$\hbox{\rm (ii) }\quad \Biggl|{15\sqrt{x}(2x+9)\over x+1}\Biggr|\leq 45\bigl|\sqrt{x}\bigr|\qquad\hbox{for all real numbers $x>7$}$$
+
+\vskip 2mm
+b. Justify the statement:
+
+$${15\sqrt{x}(2x+9)\over x+1}\hbox{ is } \Theta(\sqrt{x})$$
+
+\vskip 3mm
+{\bf Solution}
+
+\vskip 1mm
+a. {\rm (i)} Let $A=15$ and $a=0$. The given statement translates to
+
+$$A|\sqrt{x}\leq \Biggl|{15\sqrt{x}(2x+9)\over x+1}\Biggr|\qquad\hbox{for all real numbers $x>a$}$$
+
+so by definition of $\Omega$-notation
+
+$${15\sqrt{x}(2x+9)\over x+1}\hbox{ is }\Omega(\sqrt{x})$$
+
+\vskip 3mm
+{\rm (ii)} Let $B=45$ and $b=7$. The given statement translates to
+
+$$\Biggl|{15\sqrt{x}(2x+9)\over x+1}\Biggr|\hbox{ is } O(\sqrt{x})$$
+
+\vskip 3mm
+b. Let $A=15, B=45$ and let $k$ be the larger of $0$ and $7$. Then when $x>k$, both inequalities in {\rm (i)} and {\rm (ii)} are satisfied, and so
+
+$$A|\sqrt{x}|\leq \Biggl|{15\sqrt{x}(2x+9)\over x+1}\Biggr| \leq B|\sqrt{x}|\qquad\hbox{for all real numbers $x>k$}$$
+
+hence by definition of $\Theta$-notation
+
+$${15\sqrt{x}(2x+9)\over x+1}\hbox{ is } \Theta(\sqrt{x}$$
+
+\filbreak
+\vskip 1cm
+{\bf Orders of Power Functions}
+
+\vskip 1mm
+Observe that if
+
+$$1<x$$
+
+then
+
+$$x<x^2\qquad\hbox{\bf multiply both sides by $x$}$$
+
+and so
+
+$$x^2<x^3\qquad\hbox{\bf multiply both sides by $x$}$$
+
+For any rational number $r$ and $s$
+
+$$\hbox{if $x>1$ and $r<s$, then $x^r<x^s$}$$
+
+This property has the following consequence for orders
+
+For any rational numbers $r$ and $s$,
+
+$$\hbox{if $r<s$, then $x^r$ is $O(x^s)$}$$
+
+\filbreak
+\vskip 1cm
+{\bf Orders of Polynomial Functions}
+
+\vskip 3mm
+{\bf Example 3: A Polynomial Inequality}
+
+\vskip 1mm
+Show that for any real number $x$,
+
+$$\hbox{if} x>1\quad\hbox{then}\quad 3x^3+2x+7\leq 12x^3$$
+
+\vskip 3mm
+{\bf Solution}
+
+\vskip 1mm
+Suppose $x$ is a real number and $x>1$. Then by the orders of powers property ,
+
+$$x<x^3\quad\hbox{and}\quad 1<x^3$$
+
+Multiply the left-hand inquality by $2$ and the right-hand inequality by $7$ to get
+
+$$2x<2x^3\quad\hbox{and}\quad 7<7x^3$$
+
+Now add $3x^3\leq3x^3, 2x<2x^3$, and $7<7x^3$ to obtain
+
+$$3x^3+2x+7\leq 3x^3+2x^3+7x^3=12x^3$$
+
+\filbreak
+\vskip 1cm
+{\bf Example 4: Using the Definitions to Show That a Polynomial Function with Positive Coefficients Has a Cetain Order}
+
+\vskip 1mm
+Use the definitions of big-Omega, big-O, and big-Theta to show that $2x^4+3x^3+5$ is $\Theta(x^4)$
+
+\vskip 3mm
+{\bf Solutions}
+
+\vskip 1mm
+Define functions $f$ and $g$ as follows. For all real numbers $x$
+
+$$\eqalign{f(x)&=2x^4+3x^3+5\cr
+	g(x)=x^4\cr}$$
+
+Observe that for all real numbers $x>0$
+
+$$2x^4\leq 2x^4+3x^3+5\qquad\hbox{\bf because $3x^3+5>0$ for $x>0$}$$
+
+and so
+
+$$2|x^4|\leq|2x^4+3x^3+5|\qquad\hbox{\bf because all terms on both sides of the inequality are positive}$$
+
+Let $A=2$ and $a=0$. Then
+
+$$A|x^4|\leq|2x^4+3x^3+5\qquad\hbox{for all $x>a$}$$
+
+and so by definition of $\Omega$-notation, $2x^4+3x^3+5$ is $\Omega(x^4)$.
+
+\vskip 1mm
+Also for $x>1$
+
+$$\eqalign{2x^4+3x^3+h&\leq 2x^4+3x^4+5x^4\cr
+	2x^4+2x^3+5&\leq 10x^4\cr
+	|2x^4+3x^3+5|&\leq 10|x^4|\cr}$$
+
+Let $B=10$ and $b=1$. Then
+
+$$|2x^4+3x^3+5|\leq B|x^4|\qquad\hbox{for all $x>b$}$$
+
+and so, by definition of $O$-notation, $2x^4+3x^3+5$ is $O(x^4)$.
+
+\vskip 1mm
+Since $2x^4+3x^3+5$ is both $\Omega(x^4)$ and $O(x^4)$ By the Properties of $O$-, $\Omega$-, and $\Theta$-Notations
+
+\filbreak
+\vskip 1cm
+{\bf Example 5: A Big-$O$ Approximation for a polynomial with Some Negative Coefficients}
+
+\vskip 3mm
+a. Use the definition of $O$-notation to show that $3x^3-1000x-200$ is $O(x^3)$
+
+\vskip 2mm
+b. Show that $3x^3-1000x-200$ is $O(x^s)$ for all integers $s>3$.
+
+\vskip 3mm
+{\bf Solution}
+
+\vskip 1mm
+a. According to the triangle inequality for absolute value
+
+$$|a+b|\leq|a|+|b|\qquad\hbox{for all real numbers $a$ and $b$}$$
+
+If $-b$ is substituted in place of $b$, the result is
+
+$$\eqalign{|a-b|&=|a+(-b)|\leq|a|+|-b|=|a|+|b|\cr
+		|a-b|\leq|a|+|b|}$$
+
+It follows that for all real numbers $x>1$
+
+$$\eqalign{|3x^3-1000x-200|&\leq |3x^3|+|1000x|+|200|\cr
+		|3x^3-1000x-200|&\leq 3x^3+1000x+200\cr
+		|3x^3-1000x-200|&\leq 1203x^3\cr
+		|3x^3-1000x-200|&\leq 1203|x^3|}$$
+
+Let $b=1$ and $B=1203$. Then
+
+$$|3x^3-1000x-200|\leq B|x^3|\qquad\hbox{for all real numbers $x>b$}$$
+
+So, by definition of $O$-notation, $3x^3-1000x-200$ is $O(x^3)$.
+
+\vskip 3mm
+b. Suppose $s$ is an integer with $s>3$. By the order of polynomial property, $x^3<x^s$ for all real numbers $x>1$. So $B|x^3|<B|x^s|$ for all real numbers $x>b$ (because $b=1$), and thus by part (a)
+
+$$|3x^3-1000x-200|\leq B|x^s|\qquad\hbox{for all real numbers $x>b$}$$
+
+Hence, by definition of $O$-notation, $3x^3-1000x-200$ is $O(x^s)$ for all integers $s>3$.
+
+\filbreak
+\vskip 1cm
+{\bf Example 6: A Big-Omega Approximation for a Polynomial with Some Negative Coefficients}
+
+\vskip 1mm
+a. Use the definition of $\Omega$-notation to show that $3x^3-1000x-200$ is $\Omega(x^3)$.
+
+\vskip 2mm
+b. Show that $3x^3-1000x-200$ is $\Omega(x^r)$ for all integers $r<3$.
+
+\vskip 3mm
+{\bf Solution}
+
+\vskip 1mm
+a. To show that $3x^3-1000x-200$ is $\Omega(x^3)$, you need to find numbers $a$ and $A$ so that $A|x^3|\leq|3x^3-1000x-200|$ for all real numbers $x>a$
+
+\vskip 1mm
+Choose $a$ as follows: Add up the absolute values of the coeeficiencts of the lower order terms of $3x^3-1000x-200$, divide by the absolute value of the highest-power term, and multiply the result by $2$. The result is $a=2(1000+200)/3$, which equals $800$. $A$ can be taken to be one-half of the absolute value of the highest power of the polynomial.
+
+$$\eqalign{x&> 800\cr
+	x&>2\Biggl({1000+200\over 3}\Biggr)\cr
+	x&>\Biggl({2\cdot 1000\over 3}\Biggr)+\Biggl({2\cdot 200\over 3}\Biggr)\cr
+	x&>\Biggl({2\cdot 1000\over 3}\cdot{1\over x}\Biggr)+\Biggl({2\cdot 200\over 3}\cdot{1\over x^2}\Biggr)\cr
+	{3\over 2}x^3&>1000x+200\cr
+	3x^3-{3\over 2}x^3&>1000x+200\cr
+	3x^3-1000x-200&>{3\over 2}x^3\cr
+	|3x^3-1000x-200|&>{3\over 2}|x^3|\cr}$$
+
+Let $A={3\over 2}$ and let $a=800$. Then
+
+$$A|x^3|\leq |3x^3-1000x-200|\qquad\hbox{for all real numbers $x>a$}$$
+
+So, by definition of $\Omega$-notations, $3x^3-100x-200$ is $\Omega(x^3)$
+
+\vskip 3mm
+b. Suppose $r$ is an integer with $r<3$. By the order ofpolynomials property , $x^r<x^3$ for all real numbers $x>1$. So, since $a=800>1$, $A|x^r|<A|x^3|$ for all real numbers $x>a$. Thus, by part (a)
+
+$$A|x^r|\leq|3x^3-1000x-200|\qquad\hbox{for all real numbers $x>a$}$$
+
+Hence, by definition of $\Omega$-notations, $3x^3-1000x-200$ is $\Omega(x^r)$ for all integers $r<3$.
+
+\filbreak
+\vskip 1cm
+{\bf Example 7: Calculating Polynomial Orders Using the Theorem on Polynomial Orders}
+
+\vskip 1mm
+Use the theorem on polynomial orders to find orders for the functions given by the following formulas.
+
+\vskip 3mm
+a.
+
+$$f(x)=7x^5+5x^3-x+4\qquad\hbox{for all real numbers $x$}$$
+
+b.
+
+$$g(x)={(x-1)(x+1)\over 4}\qquad\hbox{for all real numbers $x$}$$
+
+\vskip 3mm
+{\bf Solution}
+
+\vskip 1mm
+a. By direct application of the theorem on polynomial orders, $7x^5+5x^3-x+4$ is $\Theta(x^5)$
+
+\vskip 3mm
+b. $$\eqalign{g(x)&={(x-1)(x+1)\over 4}\cr
+		&={1\over 4}(x^2-1)\cr
+		&={1\over 4}x^2-{1\over 4}\cr}$$
+
+Thus $g(x)$ is $\Theta(x^2)$ by the theorem on polynomial orders.
+
+\filbreak
+\vskip 1cm
+{\bf Example 8: Showing That Two Power Functions Have Different Orders}
+
+\vskip 1mm
+Show that $x^2$ is not $O(x)$, and deduce that $x^2$ is not $\Theta(x)$.
+
+\vskip 3mm
+{\bf Solution [argue by contradiction]}
+
+\vskip 1mm
+Suppose that $x^2$ is $O(x)$. By the supposition that $x^2$ is $O(x)$, there exist a positive real number $B$ and a nonnegative real number $b$ such that
+
+$$|x|\leq B|x|\qquad\hbox{for all real numbers $x>b$}\qquad\hbox{(1)}$$
+
+Let $x$ be a positive real number that is greater than both $B$ and $b$. Then
+
+$$\eqalign{x\cdot x&>B\cdot x\cr
+	|x^2|&>B|x|\cr}$$
+
+Thus there is a real number $x>b$ such that
+
+$$|x^2|>B|x|$$
+
+This contradicts (1). Hence the supposition is false, and $x^2$ is not $O(x)$. By the Properties of $O$-,$\Omega$-, and $\Theta$- Notations theorem, if $x^2$ is $\Theta(x)$, then $x^2$ is $O(x)$. But $x^2$ is not $O(x)$, and thus $x^2$ is not $\Theta(x)$.
+
+\filbreak
+\vskip 1cm
+{\bf Orders for Functions of Integer Variables}
+
+\vskip 1mm
+It is traditional to use the symbol $x$ to denote a real number variable, whereas $n$ is used to represent an integer variable. Thus, given a statement of the form
+
+$$f(n)\hbox{ is } \Theta(g(n))$$
+
+we assume that $f$ and $g$ are functions defined on sets of integers. If it is true that
+
+$$f(x)\hbox{ is } \Theta(g(x))$$
+
+where $f$ and $g$ are functions defined for real numbers, then it is certainly true that $f(n)$ is $\Theta(g(n))$. The reason is that if $f(x)$ is $\Theta(g(x))$, then an inequality
+
+$$A|g(x)|\leq|f(x)|\leq B|g(x)|$$
+
+holds for all real numbers $x>k$. Hence, in particular, the inequality
+
+$$A|g(n)|\leq|f(n)|\leq B|g(n)|$$
+
+holds for all integers $n>k$
+
+\filbreak
+\vskip 1cm
+{\bf Example 9: An Order for the Sum of the First $n$ Integers}
+
+\vskip 1mm
+Sums of the form $1+2+3+\cdots+n$ arise in the analysis of computer algorithms such as selection sort. Show that for a positive integer variable $n$,
+
+$$1+2+3+\cdots+n\hbox{ is } \Theta(n^2)$$
+
+\vskip 3mm
+{\bf Solution}
+
+\vskip 1mm
+By the formula for the sum of the first $n$ integers, for all positive integers $n$,
+
+$$1+2+3+\cdots+n={n(n+1)\over 2}$$
+
+But
+
+$${n(n+1)\over 2}={1\over 2}n^2+{1\over 2}n$$
+
+And, by the theorem on polynomial orders,
+
+$${1\over 2}n^2+{1\over 2}n\hbox{ is } \Theta(n^2)$$
+
+Hence
+
+$$1+2+3+\cdots+n\hbox{ is } \Theta(n^2)$$
+
+\filbreak
+\vskip 1cm
+{\bf Extension to Functions Composed of Rational Power Functions}
+
+\vskip 1mm
+Consider a function of the form
+
+$${(x^{3/2}+3)(x-2)^2\over x^{1/2}(2x^{1/2}+1)}={x^{7/2}-4x^{5/2}+4x^{3/2}+3x^2-12x+12\over 2x+x^{1/2}}$$
+
+When the numerator and denominator are expanded, each is a sum of terms of the form $ax^r$, where $a$ is a real number and $r$ is a positive rational number. The degree of such a sum can be taken to be the largest exponent of $x$ that occurs in one of its terms. If the difference between the degree of the numerator and that of the denominator is called the degree of the function and denoted $d$, then it can be shown that $f(x)$ is $\Theta(x^d)$, that $f(x)$ is $O(x^c)$ for all real numbers $c>d$, and that $f(x)$ is not $O(x^c)$ for any real number $c<d$. This means that for ths example $d=7/2-1=5/2$ and that
+
+$${(x^{3/2}+3)(x-2)^2\over x^{1/2}(2x^{1/2}+1)}\hbox{ is } \Theta(x^{5/2})$$
+
+$${(x^{3/2}+3)(x-2)^2\over x^{1/2}(2x^{1/2}+1)}\hbox{ is } O(x^c)\qquad\hbox{for all real numbers $c>5/2$}$$
+
+and
+
+$${(x^{3/2}+3)(x-2)^2\over x^{1/2}(2x^{1/2}+1)}\hbox{ is not } O(x^c)\qquad\hbox{for all real numbers $c>5/2$}$$
+
+
+\filbreak
+\vfill\eject
+\bye
